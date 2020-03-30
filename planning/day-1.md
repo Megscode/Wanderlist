@@ -2,7 +2,7 @@
 
 Kick off for final projects\
 
-### TEAM NAME! - Wanderlist 
+### TEAM NAME! - Wanderlist
 
 ## Team charter
 
@@ -12,32 +12,32 @@ Knowledge sharing\
 Everyone learns everything\
 Mobbing (especially at the beginning and learning something new)\
 Demos\
-Appreciations\ 
+Appreciations\
 Noncode chat\
-Check in\ 
+Check in\
 
 
 Our Schedule
 
-10 - standup 
+10 - standup
 10:30 - 12:30 Pairing
 1:30 Meditate
-1:45 - Social catchup :D bunch 
+1:45 - Social catchup :D bunch
 2 Pairing
-4:30 Retro  
+4:30 Retro
 
 
 Where we record our learnings
 
 Google docs
 Trello - with a team admin section
-Miro 
-Envision - for mock up 
+Miro
+Envision - for mock up
 
 
 What’s important to us
 
-Liz - 
+Liz -
 Fun!
 Collaboration practices (chats, git, knowledge sharing)
 Something i feel comfortable talking about at an interview
@@ -45,21 +45,21 @@ A bit of a challenge but not suuuper stressful
 Mockups mid-way/after MVP would be nice so styling not too stressful at end
 Learn something new or build my confidence in an area im uncomfortable
 
-Richard - 
+Richard -
 
-Having a fun project - Last one was good but really stressful! 
+Having a fun project - Last one was good but really stressful!
 Id like to learn some python if it fits with the group vision
-Employability is important 
+Employability is important
 Trying not to learn too many new technologies at once
 Being reasonable with my own personal goals
 
 
-Dafna - 
+Dafna -
 Good collaboration, good vibes
 Make something useful
 Learn something new
 
-David - 
+David -
 Do lots of planning
 Have fun
 Be accountable to one another
@@ -69,14 +69,14 @@ Work hard to make something cool/impressive
 Want to make API calls/possibly make something for mobile
 Make something related to the current covid/recession crisis
 
-Megan - 
-Wanna create something that others can actually use irl 
+Megan -
+Wanna create something that others can actually use irl
 Diagrams
 Make sure everyone is ok and happy
 Create a safe space for everyone to learn
 Google maps API would be nice
 So much communication :):):)
-Have fun 
+Have fun
 Estimations
 No stress pls
 
@@ -87,7 +87,7 @@ No stress pls
 
 Our Ideas;
 
-Liz - 
+Liz -
 
 I’m interested in the interaction between google maps and the app. Can you create something map-based in our app and then download back into google maps for navigation
 Custom directions for walking itineraries
@@ -96,19 +96,19 @@ Maps stats e.g. this route is along all quiet roads and 80% park
 Map based treasure hunt (e.g. google’s where’s wally /pokemon go/geocaching)
 Can this work as a physical treasure hunt & a digital one?
 
-Richard - 
-Idea: 
+Richard -
+Idea:
 Quarantine app where you can list whether you are able to help others, people can then apply from a local pool with their address etc.
 Localised messaging service - talk to people close to you geographically.
 (potentially least feasible) app that spoofs your geolocation (to give inaccurate location to apps monitoring you)
 Heatmap of Covid Cases - Overlay with hospital demand?
 
 
-Dafna - 
+Dafna -
 Q is there a way to share your past routes (maps history)
 Are there stats on most walked routes using this history
 
-David - 
+David -
 Ideas:
 For quarantine: save your home location and the app gives you points for how long you’re at home - make a leaderboard with your friends family
 Also for quarantine: like a reverse step-count where you get points for moving less
@@ -121,30 +121,30 @@ Other APIs: https://apilist.fun/ e.g Spotify - send you music based on where you
 E.g. news/ history https://any-api.com/?tag=media: get sent info about where you are
 Something to connect to Tfl API?
 
-Megan - 
+Megan -
 
-An itinerary maker that lets you share outings with your family 
-eg . countryside walks or areas of london. You can add notes to the map you creat of cool stuff 
-Getting outside 
+An itinerary maker that lets you share outings with your family
+eg . countryside walks or areas of london. You can add notes to the map you creat of cool stuff
+Getting outside
 Google maps api
 Links in chat :)
-Create custom routes and itineraries for London days out and countryside walks with cafes, pubs, green areas, cool buildings, museums, parks, statues, trees etc.  
+Create custom routes and itineraries for London days out and countryside walks with cafes, pubs, green areas, cool buildings, museums, parks, statues, trees etc.
 Ideas:
 
 Days out made Simple
 
-Create your own custom day out by selecting markers from [data source] 
-We take your selections and create an interactive route for you. 
-Download the route on to your google maps or share it with friends/family. 
+Create your own custom day out by selecting markers from [data source]
+We take your selections and create an interactive route for you.
+Download the route on to your google maps or share it with friends/family.
 Option to save and upload for anyone to download and use.
 Option to add tags to your route, ‘how long the route will take’, ‘estimated cost of route’
-Others can rate your route 
-Can add custom notes per pin marker 
+Others can rate your route
+Can add custom notes per pin marker
 
 Database
 Ruby on rails
-JS 
-API android 
+JS
+API android
 
 
 
@@ -152,8 +152,8 @@ API android
 Tech stack
 Database
 Ruby on rails
-JS 
-API android 
+JS
+API android
 
 
 2x2s
@@ -171,7 +171,7 @@ Google maps map builder tool: https://www.google.com/maps/d/u/0/viewer?mid=1cO6C
 Clarifying questions:
 What is the USP for this product
 What makes it unique?
-What is it’s value? 
+What is it’s value?
 What problem is it solving?
 Routes & Itineraries two different things:
 Drawn from different sources
@@ -202,7 +202,7 @@ User stories [mvp]
 
 Creating routes:
 
-As a user, 
+As a user,
 So that I can create routes
 I would like to be able to sign into the app with my google account
 
@@ -210,11 +210,11 @@ As a user,
 So that I can create routes
 I would like to add stops (map markers) to my route
 
-As a user, 
+As a user,
 So that I can add stops to my route
 I would like to be able to search for existing places to add
 
-As a user, 
+As a user,
 So that I can see my saved route,
 I would like to see a line on the map
 
@@ -227,8 +227,8 @@ So that I can describe my route,
 I would like to be able to add a description to my route
 
 As a user,
-So that I can share my route, 
-I would like to be able to give a route a title 
+So that I can share my route,
+I would like to be able to give a route a title
 
 As a user,
 So that I can see my routes,
@@ -242,7 +242,7 @@ I would like to be able to see a list of routes
 Nice to have:
 
 As a user,
-So that I can share my route, 
+So that I can share my route,
 I would like to be able to send my route via a link
 
 As a user,
@@ -256,15 +256,15 @@ As a user,
 So that I can have a fun day out,
 I would like to be able to search for routes
 
-As a user 
+As a user
 So that I can find routes anywhere
 I would like to enter in a location
 
-As a user 
+As a user
 So that I can find routes near me
 I would like to enable my location
 
-As a user, 
+As a user,
 So that I can return to my favourite routes
 I would like to save routes to my favourites
 
