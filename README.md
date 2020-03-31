@@ -6,7 +6,8 @@
 
 # Wanderlist 🥾
 
-Link to App - https://wanderlist.herokuapp.com/
+
+Link to App - https://wanderlist-makers.herokuapp.com/
 
 #### Technologies: Ruby, Rspec, Capybara, Rails, HTML, CSS, TravisCI, CodeClimate
 
