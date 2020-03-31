@@ -30,22 +30,27 @@ This challenge is a final week engineering programming project at [Makers Academ
 
 ### MVP
 
+```
 As a user,
-So that I can create routes
+So that I can create routes,
 I would like to add stops (map markers) to my route
-
+```
+```
 As a user, 
 So that I can see my saved route,
 I would like to see a line on the map
-
+```
+```
 As a user,
 So that I can describe my route,
 I would like to be able to add a description to my route
-
+```
+```
 As a user,
 So that I can share my route, 
 I would like to be able to give a route a title 
-
+```
+```
 As a user,
 So that I can see my routes,
 I would like to be able to publish my route
@@ -53,30 +58,38 @@ I would like to be able to publish my route
 As a user,
 So that I can have a fun day out,
 I would like to be able to see a list of routes
+```
 
 ### Additional Features
 
+```
 As a user, 
-So that I can create routes
+So that I can create routes,
 I would like to be able to sign into the app with my google account
-
+```
+```
 As a user, 
-So that I can add stops to my route
+So that I can add stops to my route,
 I would like to be able to search for existing places to add
-
+```
+```
 As a user,
 So that I can recommend a stop,
 I would like to add a note to a stop
+```
 
 ### Extra
 
+```
 As a user,
 So that I can share my route, 
 I would like to be able to send my route via a link
-
+```
+```
 As a user,
 So that I can describe my route,
 I would like to be able to add categories to my route
+```
 
 
 
