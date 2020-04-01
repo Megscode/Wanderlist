@@ -14,9 +14,9 @@ before_install:
 - gem install bundler
 
 install: 
-- nvm install node
-- node -v
-- npm i -g yarn
+# - nvm install node
+# - node -v
+# - npm i -g yarn
 - yarn
 
 before_script:
