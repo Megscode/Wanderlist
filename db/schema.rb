@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_03_31_140306) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "sqlite"
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.decimal "latitude"
