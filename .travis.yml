@@ -3,20 +3,19 @@ rvm:
 - 2.6.3
 env:
   global:
-  # - CC_TEST_REPORTER_ID=808b625841bd445e56f4cf9b78a68718507d8135b7c74d7430cd9dcc2d70a41a
+    - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
 - sqlite3
 before_script:
 # - bundle exec rake db:create
 - bundle exec rails db:migrate
-# - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-#   > ./cc-test-reporter
-# - chmod +x ./cc-test-reporter
-# - "./cc-test-reporter before-build"
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
 - bundle exec rspec
 after_script:
-# - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
+- "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
 deploy:
 # provider: heroku
 # skip_cleanup: true

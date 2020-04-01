@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Megscode/Wanderlist.svg?branch=master)](https://travis-ci.org/Megscode/Wanderlist)
-![Maintainability]
-![Test Coverage]
+[![Maintainability](https://api.codeclimate.com/v1/badges/2f223967c461f1aa01d9/maintainability)](https://codeclimate.com/github/Megscode/Wanderlist/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2f223967c461f1aa01d9/test_coverage)](https://codeclimate.com/github/Megscode/Wanderlist/test_coverage)
 
 ### [Makers Academy](http://www.makersacademy.com) - Final Engineering Project
 
