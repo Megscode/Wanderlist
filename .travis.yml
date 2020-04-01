@@ -19,17 +19,14 @@ install:
 # - npm i -g yarn
 
 before_script:
-- bundle exec rails db:create
+# - bundle exec rake db:create
 - bundle exec rails db:migrate
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
-<<<<<<< HEAD
-=======
 install: 
 - nvm install node
 - yarn
->>>>>>> Add node to travis file
 script:
 - bundle exec rspec
 after_script:
