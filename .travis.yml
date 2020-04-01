@@ -1,8 +1,8 @@
 language: ruby
 rvm:
 - 2.6.3
-env:
-  global:
+# env:
+#   global:
   # - CC_TEST_REPORTER_ID=808b625841bd445e56f4cf9b78a68718507d8135b7c74d7430cd9dcc2d70a41a
 services:
 - sqlite3
@@ -15,9 +15,9 @@ before_script:
 # - "./cc-test-reporter before-build"
 script:
 - bundle exec rspec
-after_script:
+# after_script:
 # - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
-deploy:
+# deploy:
 # provider: heroku
 # skip_cleanup: true
 #   api_key:
