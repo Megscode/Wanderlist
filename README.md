@@ -1,4 +1,4 @@
-![Build Status]
+[![Build Status](https://travis-ci.org/Megscode/Wanderlist.svg?branch=master)](https://travis-ci.org/Megscode/Wanderlist)
 ![Maintainability]
 ![Test Coverage]
 
