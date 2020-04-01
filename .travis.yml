@@ -1,14 +1,13 @@
 language: ruby
 rvm:
 - 2.6.3
-
+services:
+- sqlite3
 env:
-  - DB=sqlite3
+  - DB=sqlite
 # env:
 #   global:
   # - CC_TEST_REPORTER_ID=808b625841bd445e56f4cf9b78a68718507d8135b7c74d7430cd9dcc2d70a41a
-services:
-- sqlite3
 
 
 cache: bundler
@@ -19,9 +18,13 @@ before_install:
 
 script:
 - bundle install
-- bundle exec rake db:create
-- RAILS_ENV=test bundle exec rake db:migrate
-- bundle exec rspec spec
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rake
+
+# - bundle exec rake db:create
+# - RAILS_ENV=test bundle exec rake db:migrate
+# - bundle exec rspec spec
 
 
 
