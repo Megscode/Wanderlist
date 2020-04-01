@@ -24,6 +24,14 @@ before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
+<<<<<<< HEAD
+=======
+install: 
+- nvm install node
+# - node -v
+# - npm i -g yarn
+- yarn
+>>>>>>> Add node to travis file
 script:
 # - bundle exec rails webpacker:compile
 - bundle exec rspec
