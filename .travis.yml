@@ -3,7 +3,7 @@ rvm:
 - 2.6.3
 
 env:
-  - DB=sqlite
+  - DB=sqlite3
 # env:
 #   global:
   # - CC_TEST_REPORTER_ID=808b625841bd445e56f4cf9b78a68718507d8135b7c74d7430cd9dcc2d70a41a
