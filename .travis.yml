@@ -17,7 +17,6 @@ install:
 # - nvm install node
 # - node -v
 # - npm i -g yarn
-- yarn
 
 before_script:
 - bundle exec rails db:create
@@ -25,9 +24,8 @@ before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
-
 script:
-- bundle exec rails webpacker:compile
+# - bundle exec rails webpacker:compile
 - bundle exec rspec
 after_script:
 - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
