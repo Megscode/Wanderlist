@@ -61,13 +61,14 @@ class RoutesController < ApplicationController
     end
   end
   def yours
-    @
+    @route = Route.where(user_ID: current_user.id)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
       @route = Route.find(params[:id])
+      @place = Place.find_by(id: @route.place1_ID)
     end
 
     # Only allow a list of trusted parameters through.
