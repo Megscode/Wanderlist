@@ -1,4 +1,4 @@
-### Agenda
+# Agenda
 
 Kick off for final projects
 
