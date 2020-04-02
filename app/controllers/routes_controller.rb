@@ -1,14 +1,9 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :authenticate_user!, only: [:index]
   protect_from_forgery with: :exception
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-  protected
-  
-  def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :username, :email, :password) }
-  end
 
   # GET /routes
   # GET /routes.json
