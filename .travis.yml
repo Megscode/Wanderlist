@@ -5,7 +5,7 @@ env:
   global:
     - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
-- sqlite3
+- postgresql
 before_script:
 # - bundle exec rake db:create
 - bundle exec rails db:migrate
