@@ -15,18 +15,29 @@
 </p>
 
 <p>
-  <strong>Latitude:</strong>
+  <strong>Description:</strong>
   <%= @route.description %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @place.longitude %>
 </p>
 
 <p>
     <div id="map"></div>
 </p>
+
+<p>
+<strong>Places</strong>
+<% @places.each do |x| %>
+  <br>
+  <tr>
+  <Strong>Name:</strong>
+    <td><%= x.name %></td>
+  </tr>
+  <tr>
+  <Strong>Description:</strong>
+    <td><%= x.description %></td>
+  </tr>
+  </br>
+
+<% end %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

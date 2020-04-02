@@ -69,6 +69,9 @@ class RoutesController < ApplicationController
     def set_route
       @route = Route.find(params[:id])
       @place = Place.find_by(id: @route.place1_ID)
+      @array = [@route.place1_ID,@route.place2_ID,@route.place3_ID,@route.place4_ID,@route.place5_ID,@route.place6_ID,@route.place7_ID,@route.place8_ID]
+      @newarray = @array.select{|place_ID| place_ID.is_a? Integer}
+      @places = @newarray.map{|n| Place.find_by(id: n)}
     end
 
     # Only allow a list of trusted parameters through.
