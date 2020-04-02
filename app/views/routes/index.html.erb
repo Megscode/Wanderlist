@@ -12,6 +12,7 @@
   </thead>
 
   <tbody>
+  <% unless @routes.nil? %>
     <% @routes.each do |route| %>
       <tr>
         <td><%= route.title %></td>
@@ -21,6 +22,7 @@
         <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 
