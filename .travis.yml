@@ -10,7 +10,10 @@ env:
   global:
     - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
-- sqlite3
+- postgresql
+before_install:
+- gem update —system
+- gem install bundler
 install:
   - bundle install --jobs 3 --retry 3
   - nvm install 12
@@ -18,6 +21,7 @@ install:
   - npm i -g yarn
   - yarn
 before_script:
+- bundle exec rails db:create
 - bundle exec rails db:migrate
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter

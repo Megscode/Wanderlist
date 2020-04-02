@@ -133,6 +133,7 @@ GEM
       rack (>= 1.2, < 3)
     orm_adapter (0.5.0)
     parslet (2.0.0)
+    pg (1.2.3)
     public_suffix (4.0.3)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -227,7 +228,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
@@ -277,16 +277,16 @@ DEPENDENCIES
   google_sign_in
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
-  rspec-rails (~> 3.5)
+  rspec-rails (~> 3.9.1)
   sass-rails (>= 6)
   selenium-webdriver
   simplecov (= 0.17.1)
   simplecov-console
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
