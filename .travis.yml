@@ -1,29 +1,39 @@
 language: ruby
 rvm:
 - 2.6.3
+cache:
+  bundler: true
+  directories:
+    - app/assets/node_modules
+  yarn: true
 env:
   global:
     - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
 - postgresql
+
+before_install:
+- gem update —system
+- gem install bundler
+
+install:
+  - bundle install --jobs 3 --retry 3
+  - nvm install 12
+  - node -v
+  - npm i -g yarn
+  - yarn
+
 before_script:
 - bundle exec rails db:create
 - bundle exec rails db:migrate
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
-
-cache: bundler
- 
-before_install:
-- gem update —system
-- gem install bundler
-
 script:
 - bundle exec rspec
 after_script:
 - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
-deploy:
+# deploy:
 # provider: heroku
 # skip_cleanup: true
 #   api_key:
