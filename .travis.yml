@@ -4,40 +4,32 @@ rvm:
 cache:
   bundler: true
   directories:
-    - app/assets/node_modules
+  - app/assets/node_modules
   yarn: true
 env:
   global:
-    - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
+  - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
 - postgresql
-
 before_install:
 - gem update —system
 - gem install bundler
-
 install:
-  - bundle install --jobs 3 --retry 3
-  - nvm install 12
-  - node -v
-  - npm i -g yarn
-  - yarn
-
+- bundle install --jobs 3 --retry 3
+- nvm install 12
+- node -v
+- npm i -g yarn
+- yarn
 before_script:
 - bundle exec rails db:create
 - bundle exec rails db:migrate
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
 script:
 - bundle exec rspec
 after_script:
 - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
-# deploy:
-# provider: heroku
-# skip_cleanup: true
-#   api_key:
-#     secure: lcUOlLmFzT6s84woqdWcTDxWs9fVk7/JzoczJpYzXoDLk7FbSAlRHB5/6+j5tCOtV4XhGGoXUg/n1yvV25bjpZ68zZYpp8M1o9/aAB6wD2jYxwg5H56AvSu6gBld8CgGZz6z/ww+xuMQhOi1x/FrpvojEvkyqKO3EYN4EEzRUBJiA0PR61X9tkaMnwzViOts1+db3Se9j7w5EHdqq90pYTgHgGVTUE6W75Qr3x/wPEQaKALbyeUAB9KYxLJkLEGL0t/lCF0Rw1FaI4C+5JABD/ZXqG9Vz+4fSuvgiZAS+WPdTxNhYX5uL8po+CGs9Q0WDHCvTHqt2iO6uLaU2Zk8N8f7d4i+9MPHZSgeHMqrxu+sh0Uly9/dU9/JIAuRTOdXgHc9S4s+0+nz+jYLRTZae8yt1bL9W9/B8snuKtzb6bxCA52wnLqxLJHy25JVzIQ/5qGPj0/NaRyuudouHfU9wg4jakik+5vqoVcJL+BQVIxT3c4JzpL74ZT1QTdRUhmLZ1Efa7ZSFuO/+LnZcdfuW80kJLDemjUaTz/y26tKVR6QtoPB/0lNGzRI2R8ePZ/1oKwR8e8J+1sMoNDNhphEPBrgEuu+yVgxANGOE/IZO/8zfXr6LjiFWxGcfPZXfQF6fIVr2t8nh9pkpvZGzzKwxCmCnFCyWxsb4Yp75IZLHqc=
-# app: wanderlist-makers
-#   on:
-#     repo: https://github.com/Megscode/Wanderlist.git
+dd:
+  secure: K7uoJX5VapMIx/PyEir64+p+eboU7FHhbKDIJZgxencXfK1UMK/q7XvxWP18DH9d6AHMNVjxHv+pRqU1wzUBOAvJLSqehKohyxY4yUyCZn3j+r1ha1FToRZBOlN+i3ARUkZD+LbnZ1FT1ZM4dPan1l740zqo7Hf6/Lh5Lf21OXc6muGDXxston6DVCdy4veJYEPOkIFzxw8vLxKqxtGRBqfYUZ4x15ryrsmzmlncYqtQ8fYNGUUKtzhyeMba8NZqKEeLZfP5z7ZWOi+dJ1QFVi3MSIEYt4VaY4wwOtOroaXVquVJW6QMuW3tLp2jdx1wo14z3oXk3xL7uYzhw5m2/OLtE1Y+ijS7Y/hZHwHxrfaizGpPHRSlRl5kdaNU6hW/Vv61FKMMopqre9/73TrwJdZuKmJ8WwEQPCS3SFjn8BfHP9xwi7WhAsJBfA2lyYqCdN1UskYsL4Kc7IdofWAxg1Nh/KiAdukxvTdaWEBIC+Rz8B+H/KZAk3YMhdGSGX/i7orfQ5FLdSZr4ICUMVtGQENol/8UjhyuEzJjoZpw7AU9TH8DqkdJo1Q8UU0ird2hPqXfKfwM9F6k1y0I4mD4VsyWSiOy9MOyTRWusXZNUTF28f2xyt87TszbSSYe8whDpaZeBlg0sOh43M4YUfDR2xJs1jRsxeVPRObmD7GiMDM=
