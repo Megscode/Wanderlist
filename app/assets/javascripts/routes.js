@@ -1,4 +1,4 @@
-function initMap(lat, lng, array) {
+function initMap(lat, lng) {
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
         center: myCoords,
@@ -6,11 +6,8 @@ function initMap(lat, lng, array) {
     };
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    // var marker = new google.maps.Marker({
-    //     position: myCoords,
-    //     map: map})
 }
+
 function initMarker(lat, lng){
     var myCoords = new google.maps.LatLng(lat, lng);
     var marker = new google.maps.Marker({
@@ -18,5 +15,4 @@ function initMarker(lat, lng){
         map: map
     })
 }
-
 
