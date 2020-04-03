@@ -1,5 +1,5 @@
-window.initMap= function() {
-  this.console.log("loading")
+ window.initMap = function() {
+  console.log("loading")
   var mapOptions = {zoom: 14, center: {lat: 51.5428627, lng: -0.039212}, mapTypeId: 'roadmap'}
 
   var map = new google.maps.Map(
@@ -63,6 +63,7 @@ window.initMap= function() {
         addMarker(places[0])
         route = places[0];
         createPlace(places[0]);
+        populatePlace(places[0])
       })
 
       if (place.geometry.viewport) {
@@ -88,8 +89,16 @@ window.initMap= function() {
       type: "POST",
       url: "/places",
       data: { name, lat, lng, description },
+      remote: true,
       success(data) {}
     });
+
+    
+
+  }
+
+  function populatePlace(props) {
+    document.getElementById('place').innerHTML = props.name
   }
 
   function addMarker(props) {
@@ -116,3 +125,5 @@ window.initMap= function() {
   //     addMarker(itinerary.points[i])
   //   }
   }
+
+  export default initMap
