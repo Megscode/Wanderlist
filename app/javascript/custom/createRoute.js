@@ -62,6 +62,7 @@ window.initMap= function() {
         console.log('this is clicking')
         addMarker(places[0])
         route = places[0];
+        createPlace(places[0]);
       })
 
       if (place.geometry.viewport) {
@@ -77,6 +78,19 @@ window.initMap= function() {
     
   });
 
+  function createPlace(props) {
+    var name = props.name;
+    var lat = props.geometry.location.lat;
+    var lng = props.geometry.location.lng;
+    var description = props.formatted_address;
+    
+    $.ajax({
+      type: "POST",
+      url: "/places",
+      data: { name, lat, lng, description },
+      success(data) {}
+    });
+  }
 
   function addMarker(props) {
     var marker = new google.maps.Marker({
