@@ -21,5 +21,4 @@ function initMarker(lat, lng){
         map: map
     });
 };
-};
 
