@@ -12,6 +12,8 @@ window.initMap= function() {
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   var addPlace = document.getElementById('add-marker')
 
+  var route;
+
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
   });
@@ -58,6 +60,8 @@ window.initMap= function() {
 
       addPlace.addEventListener('click', function() {
         console.log('this is clicking')
+        addMarker(places[0])
+        route = places[0];
       })
 
       if (place.geometry.viewport) {
@@ -76,7 +80,7 @@ window.initMap= function() {
 
   function addMarker(props) {
     var marker = new google.maps.Marker({
-      position: props.latLng, 
+      position: props.geometry.location, 
       map: map,
       draggable:true,
       // title:"Drag me!"
