@@ -1,3 +1,11 @@
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        initMap()
+    });
+    </script>
+<% end %>
+
 <h1>New Route</h1>
 
 <%= render 'form', route: @route %>
