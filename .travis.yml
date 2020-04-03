@@ -4,41 +4,32 @@ rvm:
 cache:
   bundler: true
   directories:
-    - app/assets/node_modules
+  - app/assets/node_modules
   yarn: true
 env:
   global:
-    - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
-  secure: "JZunyNgO9wy1YlgEjOaqWX+j5cRkj0WlGmAYFU4sH3XQYyuQtqzIdHgBPKXSl+1b6Ozfsy7v6GltM1sx9JJ7hJK9GveEMtXVt5MRkJIYkyACwQMiUfyUgIHlVtuoAbF3HW/xO9v1tilCVJxiNkZgtLgzopW5OrC7OTENRKcR6MxQ+84wKxW33DUly6ksg0vrI4JunzqM249yh4xmHAZ8idCquGiaN+udPVeTwL9824Ob4xKuFXd5gsBHVmGg0/LZGmbvHUZZR/DJYsyo08t2dr2h0tiBJ+sZeM8VtX8WISoQMXsA+RbT34nKVVJRdbrFTcBUr98x8JCqYkaAGtc0P5Xb2E6T1mMNI5x/HiGKFoVC9ANGdMq479aBrME67jfrT9pMDRm+WAbLYVQf51R49IBuVQqNnH1jzgvNvl0OTMgDVeGrPlY+92OfD1eTnHLH2SPP5j4RHrPTpxohREBWNkHPwpAHvJO43VF76ym6/TjrKajSbPF6XRPWI1wjXdWhJWOosU6MiGgrnUO8iiP3X5g91pyRylpH1xOsUPSN1CmL/AclBJzTrt6ORyuGIHjTD/V7iZwtB3Zh+OYroOx97odVJThFZHiuga3cWvTGxuQbg8TzLUyCgATcLJb3Qo2GDZFMZntN/fCtd8GJv9lBNyYcrhWAAhpgiWD5q+2jnXc="
+  - CC_TEST_REPORTER_ID=21bb68f10a2e76bf0f5900574f30703e9237639a08da7f1db2560a8f6dc721b1
 services:
 - postgresql
-
 before_install:
 - gem update —system
 - gem install bundler
-
 install:
-  - bundle install --jobs 3 --retry 3
-  - nvm install 12
-  - node -v
-  - npm i -g yarn
-  - yarn
-
+- bundle install --jobs 3 --retry 3
+- nvm install 12
+- node -v
+- npm i -g yarn
+- yarn
 before_script:
 - bundle exec rails db:create
 - bundle exec rails db:migrate
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
 script:
 - bundle exec rspec
 after_script:
 - "./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT"
-# deploy:
-# provider: heroku
-# skip_cleanup: true
-#   api_key:
-#     secure: lcUOlLmFzT6s84woqdWcTDxWs9fVk7/JzoczJpYzXoDLk7FbSAlRHB5/6+j5tCOtV4XhGGoXUg/n1yvV25bjpZ68zZYpp8M1o9/aAB6wD2jYxwg5H56AvSu6gBld8CgGZz6z/ww+xuMQhOi1x/FrpvojEvkyqKO3EYN4EEzRUBJiA0PR61X9tkaMnwzViOts1+db3Se9j7w5EHdqq90pYTgHgGVTUE6W75Qr3x/wPEQaKALbyeUAB9KYxLJkLEGL0t/lCF0Rw1FaI4C+5JABD/ZXqG9Vz+4fSuvgiZAS+WPdTxNhYX5uL8po+CGs9Q0WDHCvTHqt2iO6uLaU2Zk8N8f7d4i+9MPHZSgeHMqrxu+sh0Uly9/dU9/JIAuRTOdXgHc9S4s+0+nz+jYLRTZae8yt1bL9W9/B8snuKtzb6bxCA52wnLqxLJHy25JVzIQ/5qGPj0/NaRyuudouHfU9wg4jakik+5vqoVcJL+BQVIxT3c4JzpL74ZT1QTdRUhmLZ1Efa7ZSFuO/+LnZcdfuW80kJLDemjUaTz/y26tKVR6QtoPB/0lNGzRI2R8ePZ/1oKwR8e8J+1sMoNDNhphEPBrgEuu+yVgxANGOE/IZO/8zfXr6LjiFWxGcfPZXfQF6fIVr2t8nh9pkpvZGzzKwxCmCnFCyWxsb4Yp75IZLHqc=
-# app: wanderlist-makers
-#   on:
-#     repo: https://github.com/Megscode/Wanderlist.git
+dd:
+  secure: Hx//VDlej9/t71R04vPToD2oxw3zqMJT0f0C0D1dUybzxJxrJn2zbx7gk1XpJx5qQPhjdH+kfraYQCCoj6M/TtxjTGBovjodZfcxx1wPOu+1qHYs3ls+AEHRabYrhRFe1hdAbRrt/9B0WnE2cU9HsWWUOoNXktNxdAoG9ZwnHI8tOScobC+mmp36STVI9DnxyZ4cn0c+QF1CaGZYssdScTfAadhYzdAecLz7LlMTADE3SpFDtB+pRYLfed391ANs2Pr5GX7Ms1OS3QLCEU+xOy8z15rhZCk5YXuaMA8deaV9go5UFxqK7nhHK0N0WS7D/Ixw4m5ZpMsFq3nJB5Q7XQp4+5msbStA5xxC/ahjpdlrlivPA5Qe6zMGnOvCfJA9+ynDPG5YSPjkDRrtYpyQ/o01RstpByeOL6RCF74z1EQiZnp2NXwdcc2A0C8J4mizs/ihzcAY5RoyysqtUEcOojWfoiwve33WxydeirvOdlkMfIv4vUWKiOWK2xF9JvCc+S3ctKjG0Kb2fIbvhWpfXD+xPRAsUurGS+aJ9D4LpkZ+PmJGdxQdTTjswj7PBl6QG7XfcwCSzh+I114czBRLZQE98cVtrayK2mtmQgBGcAFthNSn2PzFUg+vn7iz8WAFiWrJ6Ogc+I3YqSd25Xqj/gdLGlUNPxogCDFirR/dPoY=
