@@ -3,6 +3,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       initMap(<%=@place.latitude%>, <%=@place.longitude%>)
+      initMarker(<%=@place.latitude%>, <%=@place.longitude%>)
     });
   </script>
 <% end %>
@@ -26,6 +27,7 @@
 <p>
 <strong>Places</strong>
 <% @places.each do |x| %>
+  
   <br>
   <tr>
   <Strong>Name:</strong>
