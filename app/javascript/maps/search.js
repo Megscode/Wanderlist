@@ -5,11 +5,8 @@
   var map = new google.maps.Map(
     document.getElementById('map'), mapOptions);
 
-  // refreshPoints()
-
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   var addPlace = document.getElementById('add-marker')
 
   var route = []
@@ -58,14 +55,6 @@
         position: place.geometry.location
       }));
 
-      addPlace.addEventListener('click', function() {
-        var newPlace = places[0]
-        console.log('this is making a marker for ')
-        addMarker(newPlace)
-        route.push(newPlace)
-        createPlace(newPlace)
-      })
-
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
@@ -74,10 +63,40 @@
       }
 
     });
+
+    
+
+    
+
     map.fitBounds(bounds);
 
     
   });
+
+  function printRoute() {
+    document.getElementById('places').innerHTML = displayRoute()
+  }
+
+  function displayRoute() {
+
+
+    var routeString = '<ul>'
+    for(var i = 0; i < route.length; i++) {
+      var place = route[i]
+      routeString += `<li><p>${place.name}</p><p>${place.formatted_address}</p></li>` 
+    }
+
+    return routeString + '</ul>'
+  }
+
+  addPlace.addEventListener('click', function() {
+    var newPlace = searchBox.getPlaces()[0]
+    console.log(newPlace)
+    addMarker(newPlace)
+    route.push(newPlace)
+    printRoute()
+    // createPlace(newPlace)
+  })
 
   function createPlace(props) {
     var name = props.name;
@@ -94,13 +113,11 @@
       success(data) {}
     });
 
-    
+  
 
   }
 
-  function populatePlace(props) {
-    document.getElementById('place').innerHTML = props.name
-  }
+  
 
   function addMarker(props) {
     var marker = new google.maps.Marker({
@@ -126,3 +143,4 @@
   }
 
   export default initSearch
+
