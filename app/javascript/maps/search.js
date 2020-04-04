@@ -81,14 +81,14 @@
 
   function createPlace(props) {
     var name = props.name;
-    var lat = props.geometry.location.lat;
-    var lng = props.geometry.location.lng;
+    var latitude = props.geometry.location.lat;
+    var longitude = props.geometry.location.lng;
     var description = props.formatted_address;
     
     $.ajax({
       type: "POST",
       url: "/places",
-      data: { name, lat, lng, description },
+      data: {place: { name, latitude, longitude, description }},
       remote: true,
       success(data) {}
     });

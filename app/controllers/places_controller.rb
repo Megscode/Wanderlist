@@ -29,7 +29,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
+        format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
         format.json { render json: @place.errors, status: :unprocessable_entity }
