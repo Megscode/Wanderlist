@@ -1,4 +1,4 @@
- window.initMap = function() {
+ window.initSearch = function() {
   console.log("loading")
   var mapOptions = {zoom: 14, center: {lat: 51.5428627, lng: -0.039212}, mapTypeId: 'roadmap'}
 
@@ -125,4 +125,4 @@
   //   }
   }
 
-  export default initMap
+  export default initSearch
