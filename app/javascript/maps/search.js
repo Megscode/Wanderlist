@@ -84,11 +84,12 @@
     var latitude = props.geometry.location.lat;
     var longitude = props.geometry.location.lng;
     var description = props.formatted_address;
+    var google_places_id = props.place_id
     
     $.ajax({
       type: "POST",
       url: "/places",
-      data: {place: { name, latitude, longitude, description }},
+      data: {place: { name, latitude, longitude, description, google_places_id }},
       remote: true,
       success(data) {}
     });
