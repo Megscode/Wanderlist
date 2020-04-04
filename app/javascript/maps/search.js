@@ -12,7 +12,7 @@
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   var addPlace = document.getElementById('add-marker')
 
-  var route;
+  var route = []
 
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
@@ -59,11 +59,11 @@
       }));
 
       addPlace.addEventListener('click', function() {
-        console.log('this is clicking')
-        addMarker(places[0])
-        route = places[0];
-        createPlace(places[0]);
-        populatePlace(places[0])
+        var newPlace = places[0]
+        console.log('this is making a marker for ')
+        addMarker(newPlace)
+        route.push(newPlace)
+        createPlace(newPlace)
       })
 
       if (place.geometry.viewport) {
@@ -110,10 +110,8 @@
     })
 
     var infoWindow = new google.maps.InfoWindow({
-      content: `<h1>${props.header}</h1><p>${props.description}</p>`
+      content: `<h1>${props.name}</h1><p>${props.formatted_address}</p>`
     })
-
-    
 
     marker.addListener('click', function() {
       infoWindow.open(map, marker)
