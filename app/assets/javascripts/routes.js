@@ -15,4 +15,10 @@ function initMarker(lat, lng){
         map: map
     })
 }
+function initDirections(placesArray){
+    var directionsService = new google.maps.DirectionsService;
+    var directionRequest = new google.maps.DirectionsRequest()
+    directionsService.route()
+    
+}
 
