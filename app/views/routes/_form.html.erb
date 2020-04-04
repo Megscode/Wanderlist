@@ -1,4 +1,4 @@
-<%= form_with(model: route) do |form| %>
+<%= form_with(model: route, id: 'routeForm') do |form| %>
   <% if route.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
@@ -20,15 +20,13 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-  
-  <p>Places</p>
-  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <button type="button" id="add-marker">Add place to route</button>
-
-  <div id="places"></div>
-  <div id="map"></div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+
+<p>Places</p>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<button type="button" id="add-marker">Add place to route</button>
+
+<div id="places"></div>
+<div id="map"></div>
+
+<button type="button" id="submit-form">Create route</button>

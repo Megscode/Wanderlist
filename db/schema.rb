@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_143230) do
+ActiveRecord::Schema.define(version: 2020_04_04_185809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_143230) do
     t.integer "place6_ID"
     t.integer "place7_ID"
     t.integer "place8_ID"
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_routes_on_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_routes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,5 +56,5 @@ ActiveRecord::Schema.define(version: 2020_04_04_143230) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "routes", "users", column: "users_id"
+  add_foreign_key "routes", "users"
 end

@@ -27,8 +27,14 @@ class RoutesController < ApplicationController
   # POST /routes
   # POST /routes.json
   def create
-    @route = Route.new(route_params)
+    p "im in the controller"
+    place = params[:places]
+    p place['0']['name']
+    place1_id = Place.create(name: place['0']['name'], description: place['0']['description'], latitude: place['0']['latitude'], longitude: place['0']['longitude'], google_places_id: place['0']['google_places_id'])
+    
 
+    @route = Route.new(title: params['title'], description: params['description'], place1_ID: place1_id, user_id: current_user)
+    
     respond_to do |format|
       if @route.save
         format.html { redirect_to @route, notice: 'Route was successfully created.' }
@@ -79,6 +85,6 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:title, :description)
+      params.require(:route).permit(:title, :description, :places).merge(user_id: current_user.id)
     end
 end

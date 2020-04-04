@@ -8,6 +8,7 @@
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
   var addPlace = document.getElementById('add-marker')
+  var submitForm = document.getElementById('submit-form')
 
   var route = []
 
@@ -80,22 +81,34 @@
   function displayRoute() {
 
 
-    var routeString = '<ul>'
+    var routeString = '<ol>'
     for(var i = 0; i < route.length; i++) {
       var place = route[i]
-      routeString += `<li><p>${place.name}</p><p>${place.formatted_address}</p></li>` 
+      routeString += `<li><p>${place.name}</p><p>${place.description}</p></li>` 
     }
 
-    return routeString + '</ul>'
+    return routeString + '</ol>'
   }
 
   addPlace.addEventListener('click', function() {
-    var newPlace = searchBox.getPlaces()[0]
-    console.log(newPlace)
-    addMarker(newPlace)
-    route.push(newPlace)
-    printRoute()
-    // createPlace(newPlace)
+    if (route.length === 8) {
+      throw Error("You can only add up to 8 places to a route")
+    } else {
+      var newPlace = searchBox.getPlaces()[0]
+      var placeParams = { 
+        name: newPlace.name, 
+        description: newPlace.formatted_address, 
+        latitude: newPlace.geometry.location.lat, 
+        longitude: newPlace.geometry.location.lng,
+        google_places_id: newPlace.place_id
+      }
+      // console.log(newPlace)
+      addMarker(newPlace)
+      route.push(placeParams)
+      printRoute()
+      // createPlace(newPlace)
+    }
+    
   })
 
   function createPlace(props) {
@@ -136,10 +149,23 @@
     })
 
   }
-  // function refreshPoints() {
-  //   for(var i = 0; i < itinerary.points.length; i++) {
-  //     addMarker(itinerary.points[i])
-  //   }
+
+  submitForm.addEventListener('click', function() {
+    var title = document.forms["routeForm"]["route_title"].value
+    var description = document.forms["routeForm"]["route_description"].value
+    var places = route
+    
+    console.log('submitting form')
+
+    $.ajax({
+      type: "POST",
+      url: "/routes",
+      data: { title, description, places },
+      remote: true,
+      success(data) {}
+    });
+  })
+  
   }
 
   export default initSearch
