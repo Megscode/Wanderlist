@@ -9,7 +9,6 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
-gem 'google_sign_in'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -54,6 +53,7 @@ group :test do
   gem 'webdrivers'
   gem 'simplecov', '0.17.1'
   gem 'simplecov-console'
+  gem 'travis'
   
 end
 
