@@ -3,10 +3,10 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      initMap(<%=@place.latitude%>, <%=@place.longitude%>)
       <%@places.each do |x|%>
-        initMarker(<%=x.latitude%> , <%=x.longitude%>)
+        addWaypoints(<%=x.latitude%>, <%=x.longitude%>)
       <%end%>
+      initMap(<%=@place.latitude%>, <%=@place.longitude%>)
     });
 
   </script>

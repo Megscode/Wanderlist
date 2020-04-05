@@ -9,20 +9,18 @@ function initMap(lat, lng) {
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map)
-    origin = new google.maps.LatLng(51.501564, -0.141944)
-    destination = new google.maps.LatLng(51.500792, -0.124613)
-    waypoint = [{location: new google.maps.LatLng(51.499581, -0.127309), stopover: true}]
     document.getElementById("get_directions").addEventListener("click", function(){
         console.log("something")
         calculateRoute()
     })
 }
-
+locations =[]
+waypoints =[]
 function calculateRoute(){
     var request = {
-        origin: origin,
-        destination: destination,
-        waypoints: waypoint,
+        origin: locations[0],
+        destination: locations[locations.length-1],
+        waypoints: waypoints.slice(1, -1),
         travelMode: 'WALKING'
     };
     directionsService.route(request, function(result, status){
@@ -33,6 +31,10 @@ function calculateRoute(){
             window.alert('Directions request failed due to ' + status);
         }
     })
+}
+function addWaypoints(lat, lng){
+    locations.push(new google.maps.LatLng(lat, lng))
+    waypoints.push({location: new google.maps.LatLng(lat, lng), stopover: true})
 }
 
 function initMarker(lat, lng){
