@@ -62,15 +62,9 @@
       } else {
         bounds.extend(place.geometry.location);
       }
-
     });
 
-    
-
-    
-
     map.fitBounds(bounds);
-
     
   });
 
@@ -79,20 +73,17 @@
   }
 
   function displayRoute() {
-
-
     var routeString = '<ol>'
     for(var i = 0; i < route.length; i++) {
       var place = route[i]
       routeString += `<li><p>${place.name}</p><p>${place.description}</p></li>` 
     }
-
     return routeString + '</ol>'
   }
 
   addPlace.addEventListener('click', function() {
     if (route.length === 8) {
-      throw Error("You can only add up to 8 places to a route")
+      alert("You can only add up to 8 places to a route")
     } else {
       var newPlace = searchBox.getPlaces()[0]
       var placeParams = { 
@@ -133,20 +124,22 @@
   submitForm.addEventListener('click', function() {
     var title = document.forms["routeForm"]["route_title"].value
     var description = document.forms["routeForm"]["route_description"].value
-    var places = route
     
-    console.log('submitting form')
-
-    $.ajax({
-      type: "POST",
-      url: "/routes",
-      data: { title, description, places },
-      remote: true,
-      success(data) {}
-    });
+    if (title === '' || title === ' ') {
+      alert("Route requires a title")
+    } else if (route.length <= 1 ) {
+      alert("Routes must have more than one place")
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "/routes",
+        data: { title, description, route },
+        remote: true,
+        success(data) {}
+      });
+    }
+    
   })
-  
-  }
-
+ }
   export default initSearch
 
