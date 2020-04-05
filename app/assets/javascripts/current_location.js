@@ -4,13 +4,14 @@ function initUserLocation(){
   getLocation.addEventListener('click', function() {
   console.log(getLocation)
   if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position){
-            console.log(position);
-            axios.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
-              console.log(data);
-            })
-          });
-      }
-    });
-
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      console.log("inside the if statement")
+      console.log(pos);
+    })
+  }
+})
 }
