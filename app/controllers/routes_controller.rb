@@ -31,19 +31,23 @@ class RoutesController < ApplicationController
     place_params = params[:places]
     places = []
     placeid_keys = [:place1_ID, :place2_ID, :place3_ID, :place4_ID, :place5_ID, :place6_ID, :place7_ID, :place8_ID]
-    placeid_hash = {}
+    route_hash = {
+      title: params['title'],
+      description: params['description'],
+      user_id: current_user.id
+    }
     place_params.each do |k, place|
       places.push(Place.create(name: place['name'], description: place['description'], latitude: place['latitude'].to_f, longitude: place['longitude'].to_f, google_places_id: place['google_places_id']))
     end
     i = 0
     places.each do |place|
-      placeid_hash[placeid_keys[i]] = place.id
+      route_hash[placeid_keys[i]] = place.id
       i += 1
     end
+    p route_hash.to_s
+    @route = Route.create(route_hash)
 
-    p placeid_hash.to_s
-
-    @route = Route.create(title: params['title'], description: params['description'], place1_ID: place1_ID, place2_ID: place2_ID, user_id: current_user.id)
+    # @route = Route.create(title: params['title'], description: params['description'], placeid_hash, user_id: current_user.id)
     
     respond_to do |format|
       if @route.save
