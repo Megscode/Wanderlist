@@ -14,4 +14,14 @@ class Place < ApplicationRecord
     end
     array_of_places
   end
+
+  def self.create_or_find_by_gplacesid(args) 
+    existing_place = Place.find_by(google_places_id: args[:google_places_id])
+      
+    if !existing_place.nil? 
+      existing_place
+    else
+      Place.create(name: args[:name], description: args[:description], latitude: args[:latitude].to_f, longitude: args[:longitude].to_f, google_places_id: args[:google_places_id])
+    end
+  end
 end
