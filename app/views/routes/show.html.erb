@@ -3,12 +3,13 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       initMap(<%=@place.latitude%>, <%=@place.longitude%>)
-      initMarker(<%=@place.latitude%>, <%=@place.longitude%>)
-      initMarker(<%=@places[1].latitude%>, <%=@places[1].longitude%>)
-      initMarker(<%=@places[2].latitude%>, <%=@places[2].longitude%>)
+      <%@places.each do |x|%>
+        initMarker(<%=x.latitude%> , <%=x.longitude%>)
+      <%end%>
     });
 
   </script>
+
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -39,8 +40,8 @@
   <Strong>Description:</strong>
     <td><%= x.description %></td>
   </tr>
-  </br>
 
+  </br>
 <% end %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
