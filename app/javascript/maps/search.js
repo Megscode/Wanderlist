@@ -1,26 +1,22 @@
  window.initSearch = function() {
-  console.log("loading")
-  var mapOptions = {zoom: 14, center: {lat: 51.5428627, lng: -0.039212}, mapTypeId: 'roadmap'}
-
-  var map = new google.maps.Map(
-    document.getElementById('map'), mapOptions);
-
+  var mapOptions = {zoom: 14, center: {lat: 51.5428627, lng: -0.039212}, mapTypeId: 'roadmap'};
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
-  var addPlace = document.getElementById('add-marker')
-  var submitForm = document.getElementById('submit-form')
+  var searchMarkers = [];
+  var route = [];
 
-  var route = []
+  document.getElementById('add-marker').addEventListener('click', addPlace);
+  document.getElementById('submit-form').addEventListener('click', createRoute);
+  searchBox.addListener('places_changed', grabPlace);
 
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
   });
 
-  
-  var markers = []
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
-  searchBox.addListener('places_changed', function() {
+  function grabPlace() {
     var places = searchBox.getPlaces();
 
     if (places.length == 0) {
@@ -28,10 +24,10 @@
     }
   
     // Clear out the old markers.
-    markers.forEach(function(marker) {
+    searchMarkers.forEach(function(marker) {
       marker.setMap(null);
     });
-    markers = [];
+    searchMarkers = [];
 
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
@@ -49,7 +45,7 @@
       };
 
       // Create a marker for each place.
-      markers.push(new google.maps.Marker({
+      searchMarkers.push(new google.maps.Marker({
         map: map,
         icon: icon,
         title: place.name,
@@ -66,7 +62,7 @@
 
     map.fitBounds(bounds);
     
-  });
+  };
 
   function printRoute() {
     document.getElementById('places').innerHTML = displayRoute()
@@ -81,7 +77,7 @@
     return routeString + '</ol>'
   }
 
-  addPlace.addEventListener('click', function() {
+  function addPlace() {
     if (route.length === 8) {
       alert("You can only add up to 8 places to a route")
     } else {
@@ -93,22 +89,18 @@
         longitude: newPlace.geometry.location.lng,
         google_places_id: newPlace.place_id
       }
-      // console.log(newPlace)
+
       addMarker(newPlace)
       input.value = ""
       route.push(placeParams)
       printRoute()
-      // createPlace(newPlace)
-    }
-    
-  })
+    } 
+  }
 
   function addMarker(props) {
     var marker = new google.maps.Marker({
       position: props.geometry.location, 
       map: map,
-      draggable:true,
-      // title:"Drag me!"
     })
 
     var infoWindow = new google.maps.InfoWindow({
@@ -121,7 +113,7 @@
 
   }
 
-  submitForm.addEventListener('click', function() {
+  function createRoute() {
     var title = document.forms["routeForm"]["route_title"].value
     var description = document.forms["routeForm"]["route_description"].value
     
@@ -136,10 +128,9 @@
         data: { title, description, route },
         remote: true,
         success(data) {}
-      });
+      })
     }
-    
-  })
+  }
  }
   export default initSearch
 
