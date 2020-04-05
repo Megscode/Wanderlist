@@ -104,33 +104,13 @@
       }
       // console.log(newPlace)
       addMarker(newPlace)
+      input.value = ""
       route.push(placeParams)
       printRoute()
       // createPlace(newPlace)
     }
     
   })
-
-  function createPlace(props) {
-    var name = props.name;
-    var latitude = props.geometry.location.lat;
-    var longitude = props.geometry.location.lng;
-    var description = props.formatted_address;
-    var google_places_id = props.place_id
-    
-    $.ajax({
-      type: "POST",
-      url: "/places",
-      data: {place: { name, latitude, longitude, description, google_places_id }},
-      remote: true,
-      success(data) {}
-    });
-
-  
-
-  }
-
-  
 
   function addMarker(props) {
     var marker = new google.maps.Marker({
