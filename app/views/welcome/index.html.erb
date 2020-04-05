@@ -1,29 +1,16 @@
-<html>
-  <head>
-  </head>
-  <body>
+    <% provide :head_tags do %>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          initUserLocation()    
+        })
+      </script>
+<% end %>
     <h2>Welcome, <%= current_user.email %></h2>
     <h1>where would you like to go?</h1>
     <input id="input" type="text" placeholder="Search Box">
     <button type="button" id="submit">submit</button>
-    <button id="location-button">Use my location</button>
+    <button id="get-location">Use my location</button>
     <div id="output"></div>
     <h1>Had a great day out recently and want to share it?</h1>
     Create <%= link_to 'New Route', new_route_path %>
 
-  <script>
-        var getLocation = document.getElementById('location-button') 
-        getLocation.addEventListener('click', function() {
-        console.log('this is clicking')
-        if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position){
-                  console.log(position);
-                  axios.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
-                    console.log(data);
-                  })
-                });
-            }
-          });
-  </script>
-  </body>
-</html>
