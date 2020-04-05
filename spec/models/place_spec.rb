@@ -6,21 +6,21 @@ describe Place do
     end
 
     it 'takes a hash of more than one place and returns an array of places' do
-      places = Place.create_or_find_many(@place_params)
+      places = Place.create_array_of_many(@place_params)
       expect(places[0]).to be_a Place
       expect(places.length).to eq 2
     end
 
     it 'does not allow duplicate google place ids but instead returns an existing place' do
       place = Place.create(name: 'Test place', description: 'Test description', latitude: 51.54942579999999, longitude: -0.0299066, google_places_id: 'id1')
-      places = Place.create_or_find_many(@place_params)
+      places = Place.create_array_of_many(@place_params)
       expect(places[0]).to eq place
     end
   end
 
   describe '.create_or_find_by_gplacesid' do
     before do
-      @args = {name: 'Test place', description: 'Test description', latitude: 51.54942579999999, longitude: -0.0299066, google_places_id: 'id1'}
+      @args = {'name'=> 'Test place', 'description'=> 'Test description', 'latitude'=> 51.54942579999999, 'longitude'=> -0.0299066, 'google_places_id'=> 'id1'}
     end
     it 'creates a new place if it does not exist' do
       expect(Place.create_or_find_by_gplacesid(@args)).to be_a Place
