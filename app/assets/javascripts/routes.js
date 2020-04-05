@@ -10,7 +10,6 @@ function initMap(lat, lng) {
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map)
     document.getElementById("get_directions").addEventListener("click", function(){
-        console.log("something")
         calculateRoute()
     })
 }
