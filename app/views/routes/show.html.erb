@@ -2,6 +2,7 @@
   <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_API_key %>
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
+    
     document.addEventListener("DOMContentLoaded", function(){
       var route = []
       <%@places.each do |x|%>
@@ -9,6 +10,7 @@
       <%end%>
       initMap(route)
     });
+  });
 
   </script>
 
@@ -19,6 +21,11 @@
 <p>
   <strong>Name:</strong>
   <%= @route.title %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @route.points %><%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
 </p>
 
 <p>

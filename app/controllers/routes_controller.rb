@@ -7,7 +7,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    @routes = Route.hottest
   end
 
   # GET /routes/1
@@ -65,6 +65,18 @@ class RoutesController < ApplicationController
   end
   def yours
     @route = Route.where(user_ID: current_user.id)
+  end
+
+  def upvote
+    route = Route.find_by(id: params[:id])
+  
+    if current_user.upvoted?(route)
+      current_user.remove_vote(route)
+    else
+      current_user.upvote(route)
+    end
+    route.calc_hot_score
+    redirect_to root_path
   end
 
   private

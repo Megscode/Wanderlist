@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_185809) do
     t.index ["users_id"], name: "index_routes_on_users_id"
 =======
     t.bigint "user_id"
+    t.integer "points", default: 1
+    t.float "hot_score", default: 0.0
     t.index ["user_id"], name: "index_routes_on_user_id"
 >>>>>>> 74eb1ea50b7be5cc45a2d41a6bbce15ff4182fe0
   end
@@ -62,5 +64,17 @@ ActiveRecord::Schema.define(version: 2020_04_04_185809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "route_id", null: false
+    t.integer "upvote", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_votes_on_route_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "routes", "users"
+  add_foreign_key "votes", "routes"
+  add_foreign_key "votes", "users"
 end

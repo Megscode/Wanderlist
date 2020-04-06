@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :routes do
     get '/routes/yours', to: 'routes#yours'
+    post :upvote, on: :member
   end
   resources :places
   root 'welcome#index'
