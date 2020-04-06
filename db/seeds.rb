@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create!([
+    {"username": "testuser", "email": "test@example.com", "password": "password"}
+])
+
 Place.create!([
 { "name": "Buckingham Palace", "latitude": "51.501564","longitude": "-0.141944", "description": "A big palace"},
 { "name": "Westminster Abbey", "latitude": "51.499581", "longitude": "-0.127309", "description": "A big Abbey"},
