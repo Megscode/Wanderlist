@@ -116,6 +116,7 @@
   function createRoute() {
     var title = document.forms["routeForm"]["route_title"].value
     var description = document.forms["routeForm"]["route_description"].value
+    var picture_url = document.forms["routeForm"]["route_picture_url"].value
     
     if (title === '' || title === ' ') {
       alert("Route requires a title")
@@ -125,7 +126,7 @@
       $.ajax({
         type: "POST",
         url: "/routes",
-        data: { title, description, route },
+        data: { title, description, route, picture_url },
         remote: true,
         success(data) {}
       })
