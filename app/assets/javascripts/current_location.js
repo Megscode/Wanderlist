@@ -9,8 +9,20 @@ function initUserLocation(){
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      
       console.log("inside the if statement")
       console.log(pos);
+      getLocation.addEventListener('click', function(){
+        document.location.href='http://localhost:3001/nearby?lat='+pos.lat+'&lng='+pos.lng
+      })
+
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/nearby",
+      //   data: pos,
+      //   remote: true,
+      //   success(data) {}
+      // });
     })
   }
 })

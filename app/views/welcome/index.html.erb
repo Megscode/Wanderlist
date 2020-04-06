@@ -1,7 +1,10 @@
     <% provide :head_tags do %>
       <script>
         document.addEventListener('DOMContentLoaded', function(){
-          initUserLocation()    
+          initUserLocation()
+          <% @lat %> = pos.lat  
+          <% @lng %> = pos.lng  
+          console.log(<%=@lat%>)
         })
       </script>
 <% end %>
@@ -13,4 +16,6 @@
     <div id="detected-location"></div>
     <h1>Had a great day out recently and want to share it?</h1>
     Create <%= link_to 'New Route', new_route_path %>
+    Nearby <%= button_to 'Nearby route', nearby_path(:lat=>@lat, :lng=>@lng)  %>
+
 
