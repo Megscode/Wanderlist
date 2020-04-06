@@ -21,7 +21,7 @@
 
 <p>
   <strong>Points:</strong>
-  <%= link_to "▲Click here to add your vote (#{@route.points})", upvote_route_path(@route), method: :post %>
+  <%= @route.points %><%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
 </p>
 
 <p>
