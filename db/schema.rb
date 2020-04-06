@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_144034) do
+ActiveRecord::Schema.define(version: 2020_04_04_173433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_144034) do
     t.integer "place7_ID"
     t.integer "place8_ID"
     t.bigint "users_id"
+    t.string "photo_url"
     t.index ["users_id"], name: "index_routes_on_users_id"
   end
 
