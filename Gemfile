@@ -53,6 +53,7 @@ group :test do
   gem 'webdrivers'
   gem 'simplecov', '0.17.1'
   gem 'simplecov-console'
+  gem 'webmock'
   gem 'travis'
   
 end
