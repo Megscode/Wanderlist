@@ -6,7 +6,16 @@
       <%@places.each do |x|%>
         initMarker(<%=x.latitude%> , <%=x.longitude%>)
       <%end%>
+
+    document.getElementById("vote").addEventListener("click", function(){
+      $.ajax({
+        type: "POST",
+        url: "/routes/upvote",
+        remote: true,
+        success(data) {}
+      });
     });
+  });
 
   </script>
 
@@ -21,7 +30,8 @@
 
 <p>
   <strong>Points:</strong>
-  <%= @route.points %><%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
+  <%= @route.points %><button id="vote">Add your vote</button>
+  <%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
 </p>
 
 <p>
