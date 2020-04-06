@@ -6,7 +6,7 @@ RSpec.feature 'Sign in', type: :feature do
     sign_up('name', 'username', 'test@example.com', 'password')
     click_on 'Logout'
     log_in('test@example.com', 'password')
-    expect(page).to have_content('Welcome')
+    expect(page).to have_content('Wanderlist')
     expect(current_path).to eq '/'
   end
 
