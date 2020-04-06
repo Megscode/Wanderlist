@@ -1,30 +1,15 @@
 <% provide :head_tags do %>
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.credentials.google_maps_API_key + '&libraries=places&callback=initPlaceSearchMap' %>
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.credentials.google_maps_API_key + '&libraries=places' %>
     <meta name='turbolinks-visit-control' content='reload'>
     <script>
-      document.addEventListener("DOMContentLoaded", function(){
-        initPlaceSearchMap()
-      });
-      var places = []
+    document.addEventListener('DOMContentLoaded', function(){
+        initSearch()
+    });
     </script>
-  <% end %>
-<body>
+<% end %>
+ 
 <h1>New Route</h1>
 
 <%= render 'form', route: @route %>
-
-<div style="display: none">
-    <input id="pac-input"
-           class="controls"
-           type="text"
-           placeholder="Enter a location">
-</div>
-<div id="map"></div>
-<div id="infowindow-content">
-    <span id="place-name" class="title"></span><br>
-    <strong>Place ID:</strong> <span id="place-id"></span><br>
-    <span id="place-address"></span>
-</div>
-<button id="add_place">Add Place</button>
 
 <%= link_to 'Back', routes_path %>

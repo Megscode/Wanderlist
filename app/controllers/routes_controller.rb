@@ -27,7 +27,7 @@ class RoutesController < ApplicationController
   # POST /routes
   # POST /routes.json
   def create
-    @route = Route.new(route_params)
+    @route = Route.create(route_args)
 
     respond_to do |format|
       if @route.save
@@ -79,6 +79,19 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:title, :description)
+      params.require(:route).permit(:title, :description, :place1_ID).merge(user_id: current_user.id)
+    end
+
+    def route_args
+      places = Place.create_array_of_many(params[:route])
+      placeid_keys = [:place1_ID, :place2_ID, :place3_ID, :place4_ID, :place5_ID, :place6_ID, :place7_ID, :place8_ID]
+      route_hash = { title: params['title'], description: params['description'], user_id: current_user.id }
+      
+      i = 0
+      places.each do |place|
+        route_hash[placeid_keys[i]] = place.id
+        i += 1
+      end
+      route_hash
     end
 end

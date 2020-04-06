@@ -3,10 +3,11 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
+      var route = []
       <%@places.each do |x|%>
-        addWaypoints(<%=x.latitude%>, <%=x.longitude%>)
+        route.push({lat:<%=x.latitude%>, lng:<%=x.longitude%>})
       <%end%>
-      initMap(<%=@place.latitude%>, <%=@place.longitude%>)
+      initMap(route)
     });
 
   </script>
