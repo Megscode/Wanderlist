@@ -38,10 +38,16 @@ ActiveRecord::Schema.define(version: 2020_04_04_185809) do
     t.integer "place6_ID"
     t.integer "place7_ID"
     t.integer "place8_ID"
+<<<<<<< HEAD
+    t.bigint "users_id"
+    t.string "photo_url"
+    t.index ["users_id"], name: "index_routes_on_users_id"
+=======
     t.bigint "user_id"
     t.integer "points", default: 1
     t.float "hot_score", default: 0.0
     t.index ["user_id"], name: "index_routes_on_user_id"
+>>>>>>> 74eb1ea50b7be5cc45a2d41a6bbce15ff4182fe0
   end
 
   create_table "users", force: :cascade do |t|
