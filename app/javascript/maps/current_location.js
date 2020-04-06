@@ -1,4 +1,4 @@
-function initUserLocation(){
+window.initUserLocation = function(){
   console.log(document.getElementById('get-location'))
   getLocation = document.getElementById('get-location') 
   getLocation.addEventListener('click', function() {
@@ -15,3 +15,4 @@ function initUserLocation(){
   }
 })
 }
+export default initUserLocation

@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("maps/current_location")
-
 require("maps/search")
 require("maps/routes")
 
