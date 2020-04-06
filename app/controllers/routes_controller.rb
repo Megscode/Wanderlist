@@ -1,8 +1,7 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy];
 
   # GET /routes
   # GET /routes.json
