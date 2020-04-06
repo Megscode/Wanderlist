@@ -28,8 +28,9 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
+        # format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        # format.json { render :show, status: :created, location: @route }
+        redirect_back(fallback_location: root_path)
       else
         format.html { render :new }
         format.json { render json: @place.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:name, :latitude, :longitude, :description)
+      params.require(:place).permit(:name, :latitude, :longitude, :description, :google_places_id)
     end
 end
