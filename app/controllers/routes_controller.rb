@@ -7,7 +7,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    @routes = Route.hottest
   end
 
   # GET /routes/1
@@ -27,7 +27,7 @@ class RoutesController < ApplicationController
   # POST /routes
   # POST /routes.json
   def create
-    @route = Route.new(route_params)
+    @route = Route.create(route_args)
 
     respond_to do |format|
       if @route.save
@@ -67,6 +67,18 @@ class RoutesController < ApplicationController
     @route = Route.where(user_ID: current_user.id)
   end
 
+  def upvote
+    route = Route.find_by(id: params[:id])
+  
+    if current_user.upvoted?(route)
+      current_user.remove_vote(route)
+    else
+      current_user.upvote(route)
+    end
+    route.calc_hot_score
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
@@ -79,6 +91,19 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:title, :description)
+      params.require(:route).permit(:title, :description, :place1_ID).merge(user_id: current_user.id)
+    end
+
+    def route_args
+      places = Place.create_array_of_many(params[:route])
+      placeid_keys = [:place1_ID, :place2_ID, :place3_ID, :place4_ID, :place5_ID, :place6_ID, :place7_ID, :place8_ID]
+      route_hash = { title: params['title'], description: params['description'], user_id: current_user.id }
+      
+      i = 0
+      places.each do |place|
+        route_hash[placeid_keys[i]] = place.id
+        i += 1
+      end
+      route_hash
     end
 end

@@ -1,15 +1,19 @@
 <% provide :head_tags do %>
+  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_API_key %>
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
+    
     document.addEventListener("DOMContentLoaded", function(){
-      initMap(<%=@place.latitude%>, <%=@place.longitude%>)
-      initMarker(<%=@place.latitude%>, <%=@place.longitude%>)
-      initMarker(<%=@places[1].latitude%>, <%=@places[1].longitude%>)
-      initMarker(<%=@places[2].latitude%>, <%=@places[2].longitude%>)
-      initMarker(<%)
+      var route = []
+      <%@places.each do |x|%>
+        route.push({lat:<%=x.latitude%>, lng:<%=x.longitude%>})
+      <%end%>
+      initMap(route)
     });
+  });
 
   </script>
+
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -20,6 +24,11 @@
 </p>
 
 <p>
+  <strong>Points:</strong>
+  <%= @route.points %><%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @route.description %>
 </p>
@@ -27,7 +36,7 @@
 <p>
     <div id="map"></div>
 </p>
-
+<button id="get_directions">Get Directions</button>
 <p>
 <strong>Places</strong>
 <% @places.each do |x| %>
@@ -40,8 +49,8 @@
   <Strong>Description:</strong>
     <td><%= x.description %></td>
   </tr>
-  </br>
 
+  </br>
 <% end %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |

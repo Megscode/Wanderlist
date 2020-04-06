@@ -1,3 +1,13 @@
+<% provide :head_tags do %>
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.credentials.google_maps_API_key + '&libraries=places' %>
+    <meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        initSearch()
+    });
+    </script>
+<% end %>
+ 
 <h1>New Route</h1>
 
 <%= render 'form', route: @route %>
