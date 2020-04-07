@@ -2,12 +2,12 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      initMap(<%=@place.latitude%>, <%=@place.longitude%>)
+      var route = []
       <%@places.each do |x|%>
-        initMarker(<%=x.latitude%> , <%=x.longitude%>)
+        route.push({lat:<%=x.latitude%>, lng:<%=x.longitude%>})
       <%end%>
+      initMap(route)
     });
-
   </script>
 
 <% end %>
@@ -20,6 +20,11 @@
 </p>
 
 <p>
+  <strong>Points:</strong>
+  <%= @route.points %><%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @route.description %>
 </p>
@@ -27,7 +32,7 @@
 <p>
     <div id="map"></div>
 </p>
-
+<button id="get_directions">Get Directions</button>
 <p>
 <strong>Places</strong>
 <% @places.each do |x| %>

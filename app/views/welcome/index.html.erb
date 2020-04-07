@@ -8,6 +8,7 @@
     })
   </script>
 <% end %>
+    <h1 class="display-1">Wanderlist</h1>
     <h2>Welcome, <%= current_user.email %></h2>
     <h1>where would you like to go?</h1>
     <input id="input" type="text" placeholder="Search Box">
@@ -17,5 +18,6 @@
     <h1>Had a great day out recently and want to share it?</h1>
     Create <%= link_to 'New Route', new_route_path %>
     Nearby <%= button_to 'Nearby route', nearby_path(:lat=>@lat, :lng=>@lng)  %>
+
 
 

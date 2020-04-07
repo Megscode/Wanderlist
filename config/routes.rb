@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  devise_for :users
-  resources :routes 
   get '/nearby', to: 'welcome#nearby'  
-  
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  resources :routes do
+    post :upvote, on: :member
+  end
   resources :places
   root 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
