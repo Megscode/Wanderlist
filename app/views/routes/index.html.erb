@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<div class="banner">
-  <h1 class="display-1">Routes</h1>
-</div>
-<div class="container">
-<div class="row">
-  <% @routes.each do |route| %>
-  <div class="col-md mb-3 br-0">
-    <div class="route card">
-      <div class="card-body">
-        <h3 class="route-title"><%= link_to route.title, route %></h4>
-        <p><%= route.description %></p>
-        <p>Votes: <%= route.points %></p>
-        <%= link_to "View route", route %>
-      </div>
-    </div> 
+<h1 class="display-2 pl-5" ><u>Routes</u></h1>
+<div class="row lead">
+  <div class="col-md-4">
+    
   </div>
-  <% end %>
+  <div class="col-md-8">
+    <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg">
+  </div>
 </div>
+<h3><%= link_to 'Create your own route', new_route_path %></h3>
+
+<div class="container-fluid pt-5 bg-light">
+  <div class="container">
+  <div class="row">
+    <% @routes.each do |route| %>
+    <div class="col-md mb-3 br-0">
+      <div class="route card">
+        <div class="card-body">
+          <h3 class="route-title"><%= link_to route.title, route %></h4>
+          <p><%= route.description %></p>
+          <p>Votes: <%= route.points %></p>
+          <%= link_to "View route", route %>
+        </div>
+      </div> 
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
 <br>
-
-<%= link_to 'New Route', new_route_path %>

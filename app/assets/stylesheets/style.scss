@@ -1,11 +1,22 @@
 body {
   // font-family: 'Lato', sans-serif;
   font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
-h1 {
-  // font-family: 'Arvo', serif;
-  // font-family: 'Noto Serif', serif;
-  // font-family: 'Work Sans', sans-serif;
+// h1 {
+//   // font-family: 'Arvo', serif;
+//   // font-family: 'Noto Serif', serif;
+//   font-family: 'Work Sans', sans-serif;
+// }
+
+grey-bg {
+  padding: 100px 10;
+  background-color: #e5e5e5
+}
+
+container-fluid {
+  padding: 0;
+  max-width: 100%
 }
 
 
@@ -19,21 +30,31 @@ h3 a:hover {
   color: #3200FF;
 }
 
-.banner {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
-	background-size: cover;
-	background-position: center;
-  // background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
-  margin: 0;
-  margin-bottom: 50px;
-  text-align: center;
-  padding: 180px 0;
-  height: 100vh;
-  margin: 0;
+// .banner {
+//   // background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
+// 	background-size: cover;
+// 	background-position: center;
+//   // background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
+//   margin: 0;
+//   margin-bottom: 50px;
+//   text-align: center;
+//   padding: 180px 0;
+//   height: 100vh;
+//   margin: 0;
+// }
+
+// .banner h1 {
+//   color: white;
+// }
+.lead {
+  margin-top: 50px;
+  height: 90vh;
 }
 
-.banner h1 {
-  color: white;
+.lead img {
+  width: 100%;
+  object-fit: cover;
+  
 }
 
 .card {
