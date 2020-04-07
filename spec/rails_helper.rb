@@ -84,7 +84,7 @@ RSpec.configure do |config|
     #     to_return(status: 200, body: "", headers: {})
   end
   config.before(:suite) do
-    require "#{Rails.root}/db/seeds.rb"
+    require "support/seeds.rb"
   end
   
   # Filter lines from Rails gems in backtraces.
