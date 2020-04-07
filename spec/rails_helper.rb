@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'webhelpers'
 require 'simplecov'
 require 'webmock/rspec'
+require 'support/database_cleaner'
 #disable external calls in tests
 # WebMock.disable_net_connect!(allow_localhost: true)
 Capybara.javascript_driver = :selenium
@@ -50,7 +51,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.include Devise::Test::ControllerHelpers, type: :controller
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -81,6 +82,9 @@ RSpec.configure do |config|
     #     'User-Agent'=>'Ruby'
     #       }).
     #     to_return(status: 200, body: "", headers: {})
+  end
+  config.before(:suite) do
+    require "#{Rails.root}/db/seeds.rb"
   end
   
   # Filter lines from Rails gems in backtraces.
