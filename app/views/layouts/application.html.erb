@@ -20,16 +20,20 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <p class="navbar-text float-right">
+      <nav>
+      <ul class="navbar-text float-right">
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <li><%= link_to 'Create new route', new_route_path, :class => 'navbar-link' %> |</li>
+        <li><%= link_to 'See routes', routes_path, :class => 'navbar-link' %> | </li>
+        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |</li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |</li>
+      <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
       <% end %>
-      </p>
+      </ul>
+    </nav>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
