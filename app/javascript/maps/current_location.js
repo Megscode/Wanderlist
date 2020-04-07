@@ -12,40 +12,18 @@ window.initUserLocation = function() {
     }
   })
     var input = document.getElementById('pac-input');
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.SearchBox(input);
 
     var grab_place = document.getElementById('submit')
     grab_place.addEventListener('click', initAutoComplete)
 
     function initAutoComplete() {
-      var input = document.getElementById('pac-input');
-      var autocomplete = new google.maps.places.SearchBox(input);
-      console.log(autocomplete.getPlace())
-      lat = autocomplete.getPlace().location.lat
-      console.log(lat)
-      lng = autocomplete.getPlace().location.lng
-      // document.addEventListener('lat')
+      var place = autocomplete.getPlaces()[0];
+      var lat = place.geometry.location.lat()
+      var lng = place.geometry.location.lng()
+
+      document.location.href='http://localhost:3000/nearby?lat='+lat+'&lng='+ lng
     }
-    // google.maps.event.addDomListener(window, 'load', initAutocomplete);
-  // }
 }
+
 export default initUserLocation
-
-// function addPlace() {
-//   if (route.length === 8) {
-//     alert("You can only add up to 8 places to a route")
-//   } else {
-//     var newPlace = searchBox.getPlaces()[0]
-//     var placeParams = { 
-//       name: newPlace.name, 
-//       description: newPlace.formatted_address, 
-//       latitude: newPlace.geometry.location.lat, 
-//       longitude: newPlace.geometry.location.lng,
-//       google_places_id: newPlace.place_id
-//     }
-
-//     addMarker(newPlace)
-//     input.value = ""
-//     route.push(placeParams)
-//     printRoute()
-//   } 
