@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Sign in', type: :feature do
+RSpec.feature 'Block external request', type: :feature do
   scenario 'External request' do
     uri = URI('https://maps.googleapis.com/maps/api/js')
 

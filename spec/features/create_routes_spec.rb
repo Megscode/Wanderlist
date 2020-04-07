@@ -15,7 +15,7 @@ RSpec.feature 'Create a route', type: :feature do
           "name": "Holloway"
         }
       })
-    execute_script("$('#add-marker').click()")
+    
     expect(current_path).to eq '/routes/new'
     expect(page).to have_content 'Holloway'
   end
