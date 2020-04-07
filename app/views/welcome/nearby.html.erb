@@ -3,7 +3,6 @@
     <script>
     document.addEventListener('DOMContentLoaded', function(){
         initMapNearBy(<%= @lat %>, <%= @lng %>)
-        initMarker(<%= @lat %>, <%= @lng %>)
     });
     </script>
    
@@ -17,3 +16,6 @@
 <% end %>
 <div>Hi!!</div>
 <div id="map-nearby"></div>
+<%@routes.each do |route|%>
+  <p><%=route.id%><p>
+<%end%>

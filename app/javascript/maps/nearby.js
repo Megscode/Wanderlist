@@ -1,4 +1,4 @@
-function initMapNearBy(lat, lng){
+window.initMapNearBy= function(lat, lng){
   var myCoords = new google.maps.LatLng(lat, lng);
   console.log(myCoords);
   var mapOptions = {
@@ -6,15 +6,13 @@ function initMapNearBy(lat, lng){
       zoom: 14
   };
   console.log(mapOptions);
-
-  map = new google.maps.Map(document.getElementById('map-nearby'), mapOptions);
-}
-
-function initMarker(lat, lng){
-  var myCoords = new google.maps.LatLng(lat, lng);
+  var map = new google.maps.Map(document.getElementById('map-nearby'), mapOptions);
   var marker = new google.maps.Marker({
       position: myCoords,
       map: map
   })
 }
+export default initMapNearBy
+
+
 

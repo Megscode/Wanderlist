@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("maps/search")
 require("maps/routes")
+require("maps/current_location")
+require("maps/nearby")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
