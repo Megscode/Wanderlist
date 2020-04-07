@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get '/nearby', to: 'welcome#nearby'  
+  get 'welcome/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   resources :routes do
+    get '/routes/yours', to: 'routes#yours'
     post :upvote, on: :member
   end
   resources :places

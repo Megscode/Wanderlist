@@ -1,20 +1,9 @@
-<% provide :head_tags do %>
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      initUserLocation()
-    })
-  </script>
-<% end %>
-    <h1 class="display-1">Wanderlist</h1>
-    <h2>Welcome, Friend!</h2>
-    <h1>where would you like to go?</h1>
-    <input id="pac-input" type="text" placeholder="Search Box">
-    <button type="button" id="submit">Search location</button>
-    <button id="get-location">Use my location</button>
-    <div id="detected-location"></div>
-    <h1>Had a great day out recently and want to share it?</h1>
-    Create <%= link_to 'New Route', new_route_path %>
-    Nearby <%= button_to 'Nearby route', nearby_path(:lat=>@lat, :lng=>@lng)  %>
-
-
-
+<h1 class="display-1">Wanderlist</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<p class="lead">
+  Hey Liz and Dafna and David and Richard
+</p>
+<blockquote class="blockquote text-center">
+  <p class="mb-0">livin it up in maps dream team</p>
+  <footer class="blockquote-footer">Meggo <cite title="a coder girl">Source Title</cite></footer>
+</blockquote>
