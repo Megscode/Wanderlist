@@ -1,0 +1,28 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var route = []
+      <%@routes.each do |x|%>
+        route.push({lat:<%=x.starting_lat%>, lng:<%=x.starting_lng%>, title:"<%=x.title%>"})
+      <%end%>
+      initMapNearBy(<%= @lat %>, <%= @lng %>, route)
+    });
+    </script>
+   
+    <style>
+      #map-nearby {
+        height: 400px;  /* The height is 400 pixels */
+        width: 600px;  /* The width is the width of the web page */
+       }
+    </style>
+
+<% end %>
+<div id="map-nearby"></div>
+<%@routes.each do |route|%>
+  <div id="route">
+    <p><%=route.title%><p>
+    <p><%=route.description%></p>
+    <td><%= link_to 'Show', route %></td>
+  </div>
+<%end%>

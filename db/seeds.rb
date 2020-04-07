@@ -15,5 +15,5 @@ Place.create!([
 { "name": "Big Ben", "latitude": "51.500792", "longitude": "-0.124613", "description": "A big Clock"}
 ])
 Route.create!([
-    {"title": "Royal Route","description": "See the Queen","place1_ID": "1", "place2_ID": "2", "place3_ID": "3" , "user_id": "1"}
+    {"title": "Royal Route","description": "See the Queen","place1_ID": "1", "place2_ID": "2", "place3_ID": "3" , "user_id": "1", "starting_lat": "51.501564","starting_lng": "-0.141944"}
 ])
