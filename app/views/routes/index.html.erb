@@ -10,14 +10,14 @@
 </div>
 <h3><%= link_to 'Create your own route', new_route_path %></h3>
 
-<div class="container-fluid pt-5 bg-light">
+<div class="pt-5 bg-light">
   <div class="container">
   <div class="row">
     <% @routes.each do |route| %>
-    <div class="col-md mb-3 br-0">
-      <div class="route card">
+    <div class="col-md-4">
+      <div class="route card border-0 border-bottom-3 border-dark m-2">
         <div class="card-body">
-          <h3 class="route-title"><%= link_to route.title, route %></h4>
+          <h3 class="route-title display-4"><%= link_to route.title, route %></h3>
           <p><%= route.description %></p>
           <p>Votes: <%= route.points %></p>
           <%= link_to "View route", route %>
@@ -28,4 +28,4 @@
     <% end %>
   </div>
 </div>
-<br>
+
