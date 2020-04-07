@@ -14,6 +14,7 @@ require 'webmock/rspec'
 #disable external calls in tests
 WebMock.disable_net_connect!(allow_localhost: true)
 
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   SimpleCov::Formatter::HTMLFormatter
