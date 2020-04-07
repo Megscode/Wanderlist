@@ -1,12 +1,12 @@
-    <% provide :head_tags do %>
-      <script>
-        document.addEventListener('DOMContentLoaded', function(){
-          initUserLocation()
-          <% @lat %> = pos.lat  
-          <% @lng %> = pos.lng  
-          console.log(<%=@lat%>)
-        })
-      </script>
+<% provide :head_tags do %>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      initUserLocation()
+      <% @lat %> = pos.lat  
+      <% @lng %> = pos.lng  
+      console.log(<%=@lat%>)
+    })
+  </script>
 <% end %>
     <h2>Welcome, <%= current_user.email %></h2>
     <h1>where would you like to go?</h1>
