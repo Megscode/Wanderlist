@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!([
-    {"username": "testuser", "email": "test2@example.com", "password": "password"}
+User.create!([
+    { "name": "Liz", "username": "testuser", "email": "test@example.com", "password": "password" }
 ])
 
 Place.create!([
@@ -15,5 +15,5 @@ Place.create!([
 { "name": "Big Ben", "latitude": "51.500792", "longitude": "-0.124613", "description": "A big Clock"}
 ])
 Route.create!([
-    {"title": "Royal Route","description": "See the Queen","place1_ID": "1", "place2_ID": "2", "place3_ID": "3" , "user_id": user.id}
+    {"title": "Royal Route","description": "See the Queen","place1_ID": "1", "place2_ID": "2", "place3_ID": "3" , "user_id": "1"}
 ])
