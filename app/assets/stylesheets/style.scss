@@ -1,0 +1,35 @@
+body {
+  // font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
+}
+h1 {
+  // font-family: 'Arvo', serif;
+  // font-family: 'Noto Serif', serif;
+  // font-family: 'Work Sans', sans-serif;
+}
+
+h4 {
+  // font-family: 'Work Sans', sans-serif;
+}
+
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
+	background-size: cover;
+	background-position: center;
+  // background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg");
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  padding: 180px 0;
+  height: 100vh;
+  margin: 0;
+}
+
+.banner h1 {
+  color: white;
+}
+
+.card {
+  width: 100%
+}
