@@ -42,8 +42,6 @@ window.initMapNearBy= function(lat, lng, route_array){
         map: map
     })
   }
-  
-
 }
 
 export default initMapNearBy
