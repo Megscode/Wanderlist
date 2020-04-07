@@ -6,5 +6,9 @@ class WelcomeController < ApplicationController
     @lat = params[:lat]
     @lng = params[:lng]
    end
+
+  def searched
+ 
+  end
    
 end

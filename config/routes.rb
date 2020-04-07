@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :routes 
   get '/nearby', to: 'welcome#nearby'  
+  get '/searched_routes', to: 'welcome#searched'  
+
   
   resources :places
   root 'welcome#index'

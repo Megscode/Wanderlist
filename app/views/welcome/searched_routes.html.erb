@@ -1,0 +1,19 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        initMapNearBy(<%= @lat %>, <%= @lng %>)
+        initMarker(<%= @lat %>, <%= @lng %>)
+    });
+    </script>
+   
+    <style>
+      #map-nearby {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+
+<% end %>
+<div>Hi!!</div>
+<div id="map-nearby"></div>
