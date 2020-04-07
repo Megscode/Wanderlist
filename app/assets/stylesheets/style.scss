@@ -1,7 +1,6 @@
 body {
   // font-family: 'Lato', sans-serif;
   font-family: 'Roboto', sans-serif;
-
 }
 h1 {
   // font-family: 'Arvo', serif;
@@ -9,8 +8,15 @@ h1 {
   // font-family: 'Work Sans', sans-serif;
 }
 
-h4 {
+
+
+h3 a {
+  color: #3200FF;
   // font-family: 'Work Sans', sans-serif;
+}
+
+h3 a:hover {
+  color: #3200FF;
 }
 
 .banner {
