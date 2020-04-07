@@ -23,8 +23,14 @@ window.initMapNearBy= function(lat, lng, route_array){
       var myCoords = new google.maps.LatLng(lat, lng);
       var marker = new google.maps.Marker({
           position: myCoords,
-          label: `${title}`,
           map: map
+      })
+      var infoWindow = new google.maps.InfoWindow({
+        content: `<h1>${title}</h1>`
+      })
+  
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker)
       })
   }
 
