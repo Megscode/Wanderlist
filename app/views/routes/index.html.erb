@@ -27,7 +27,6 @@
               <p>Votes: <%= route.points %></p>
             </div>
             <p><%= route.description %></p>
-              <p>Starting point: <%= Place.find(route.place1_ID).name %></p>
               <%= button_to "View route", route, class: 'btn btn-outline-primary rounded-0 float-right' %>
           </div>
         </div> 

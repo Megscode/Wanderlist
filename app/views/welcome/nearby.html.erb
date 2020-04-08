@@ -18,6 +18,8 @@
     </style>
 
 <% end %>
+
+<div class="pt-5 grey-bg">
 <div id="map-nearby"></div>
 <%@routes.each do |route|%>
   <div id="route">
@@ -26,3 +28,5 @@
     <td><%= link_to 'Show', route %></td>
   </div>
 <%end%>
+
+<div>
