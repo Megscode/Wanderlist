@@ -8,11 +8,12 @@
     </script>
 <% end %>
  
-
+<div class="container-fluid p-0 lead">
 <div class="row">
 <div class="col-md-4">
-<div class="jumbatron p-2 ml-2">
-<h1 class="display-3">New Route</h1>
+<div class="jumbatron px-4 ml-2">
+<p class="h2 display-3"><u>New Route</u></p>
+<br/>
 <%= render 'form', route: @route %>
 </div>
 </div>
@@ -21,5 +22,5 @@
 </div>
 </div>
 </div>
+</div>
 
-<%= link_to 'Back', routes_path %>

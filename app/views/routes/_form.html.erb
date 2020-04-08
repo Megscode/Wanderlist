@@ -14,22 +14,26 @@
 
   <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control border-dark rounded-0" %>
   </div>
 
   <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
+    <%= form.text_area :description, class: "form-control border-dark rounded-0" %>
   </div>
 <% end %>
 
 <h3>Places</h3>
-<div class="form-group">
-  <label for="pac-input">Enter a location</label>
-  <input id="pac-input" class="form-control" type="text" placeholder="Search">
-</div>
+
+  <div class="form-group">
+  <label for="pac-input">Enter a location:</label>
+  <div class="input-group">
+  <input id="pac-input" class="form-control border-dark rounded-0" type="text" placeholder="Search">
   <button type="button" id="add-marker" class="btn btn-outline-dark rounded-0">Add to route</button>
+</div>
+</div>
   <div id="places" class="mt-3"></div>
-  <button type="button" id="submit-form" class="btn btn-lg btn-outline-dark rounded-0">Create route</button>
+  <br/>
+  <button type="button" id="submit-form" class="btn btn-lg btn-outline-dark rounded-0 pt-2">Create route</button>
 
 
