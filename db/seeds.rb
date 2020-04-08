@@ -23,7 +23,7 @@ Place.create!([
 { "name": "Victoria and Albert Museum", "latitude": "51.4966", "longitude": "-0.1722", "description": "A dazzling collections of artifacts from across the known world."},
 { "name": "The National Gallery", "latitude": "51.5089", "longitude": "-0.1283", "description": "An outstanding collection of some of the greatest works of art avaliable"},
 { "name": "The National Portrait Gallery", "latitude": "51.5094", "longitude": "-0.1281", "description": "Like its cousin the national gallery, but with a focus on paintings of the aristocracy"},
-{ "name": "Wong Kei", "latitude": "51.5115°", "longitude": "-0.1323", "description": "A beloved chinese restaurant with three floors and very reasonable prices. Great place for lunch."},
+{ "name": "Wong Kei", "latitude": "51.5115", "longitude": "-0.1323", "description": "A beloved chinese restaurant with three floors and very reasonable prices. Great place for lunch."},
 { "name": "The House of Spells", "latitude": "51.5124", "longitude": "-0.1288", "description": "A wonderful shop containign harry potter and game of thrones memoribilia"},
 { "name": "Royal Opera House", "latitude": "51.5129", "longitude": "-0.1222", "description": "Tickets required for this world class Opera House. The cafe is quite special too."},
 { "name": "The Crobar", "latitude": "51.5149", "longitude": "-0.1303", "description": "A loud and proud metal bar with jaegermeister on tap."},
@@ -38,6 +38,6 @@ Route.create!([
     {"title": "Royal Route","description": "Enjoy a magnificent afternoon with all the royal family have to offer","place1_ID": "1", "place2_ID": "2", "place3_ID": "3" , "user_id": "1", "starting_lat": "51.501564","starting_lng": "-0.141944", "hot_score": "1.2", "points": "8"},
     {"title": "Museum Tour","description": "A fun packed afternoon of londons best museums","place1_ID": "4", "place2_ID": "5", "place3_ID": "6" , "place4_ID": "7", "user_id": "2", "starting_lat": "51.5194", "starting_lng": "-0.1270", "hot_score": "1.5", "points": "11"},
     {"title": "Gallery Tour","description": "A wonderful tour lasting four hours providing some of the most beautiful portraits and vistas avaliable. Lunch suggestions included.","place1_ID": "8", "place2_ID": "9", "place3_ID": "10" ,"place4_ID": "11", "place5_ID": "12", "user_id": "3", "starting_lat": "51.5089","starting_lng": "-0.1283" , "hot_score": "0.9", "points": "7"},
-    {"title": "BarCrawl","description": "A raucous night out on the town, iron maiden and shots seem likely.","place1_ID": "113", "place2_ID": "14", "place3_ID": "15" , "user_id": "4", "starting_lat": "51.5149","starting_lng": "-0.1303", "hot_score": "1.6", "points": "12"},
+    {"title": "BarCrawl","description": "A raucous night out on the town, iron maiden and shots seem likely.","place1_ID": "13", "place2_ID": "14", "place3_ID": "15" , "user_id": "4", "starting_lat": "51.5149","starting_lng": "-0.1303", "hot_score": "1.6", "points": "12"},
     {"title": "Historical Tour","description": "A tour of some of the most historically important sights of london with an excellent walk between.","place1_ID": "16", "place2_ID": "17", "place3_ID": "18" , "user_id": "5", "starting_lat": "51.5138","starting_lng": "-0.0984", "hot_score": "0.5", "points": "5"}
 ])
