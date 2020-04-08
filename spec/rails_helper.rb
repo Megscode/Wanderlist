@@ -11,8 +11,10 @@ require 'rspec/rails'
 require 'webhelpers'
 require 'simplecov'
 require 'webmock/rspec'
+require 'support/database_cleaner'
 #disable external calls in tests
-WebMock.disable_net_connect!(allow_localhost: true)
+# WebMock.disable_net_connect!(allow_localhost: true)
+Capybara.javascript_driver = :selenium
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -51,7 +53,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.include Devise::Test::ControllerHelpers, type: :controller
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -72,6 +74,19 @@ RSpec.configure do |config|
     stub_request(:get, /maps.googleapis.com/).
       with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
       to_return(status: 200, body: "stubbed response", headers: {})
+
+    # stub_request(:get, "https://github.com/mozilla/geckodriver/releases/latest").
+    #     with(
+    #       headers: {
+    #     'Accept'=>'*/*',
+    #     'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+    #     'Host'=>'github.com',
+    #     'User-Agent'=>'Ruby'
+    #       }).
+    #     to_return(status: 200, body: "", headers: {})
+  end
+  config.before(:suite) do
+    require "support/seeds.rb"
   end
   
   # Filter lines from Rails gems in backtraces.

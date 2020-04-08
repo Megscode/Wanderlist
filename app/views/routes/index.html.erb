@@ -1,44 +1,38 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
 
-<h1>Routes</h1>
+  <div class="row lead">
+    <div class="col-md-4">
+      <div class="sticky-top mb-5 p-3">
+        <h1 class="display-2" ><u>Routes</u></h1>
+        <br>
+        <%= link_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg">
+    </div>
+  </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Points</th>
-      <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?cs=srgb&dl=big-ben-bridge-castle-city-460672.jpg&fm=jpg" class="img-fluid" alt="Responsive image">
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <img src="https://images.pexels.com/photos/326807/pexels-photo-326807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="..." class="img-fluid">
+  <div class="mt-5 pt-5 grey-bg">
+    <div class="container">
+      <% @routes.each do |route| %>
+        <div class="row p-4">
+          <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
+                <p>Votes: <%= route.points %></p>
+              </div>
+              <p><%= route.description %></p>
+                <%= link_to "View route", route, class: 'btn btn-outline-primary rounded-0 float-right' %>
+            </div>
+          </div> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <figure class="figure">
-  <img src="https://images.pexels.com/photos/3793319/pexels-photo-3793319.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-  <figcaption class="figure-caption">Cocktails in Soho.</figcaption>
-</figure>
-
-<figure class="figure">
-  <img src="https://images.pexels.com/photos/1172840/pexels-photo-1172840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-  <figcaption class="figure-caption">Eye in the sky.</figcaption>
-</figure>
-
-  <tbody>
-    <% @routes.each do |route| %>
-      <tr>
-        <td><%= route.title %></td>
-        <td><%= route.description %></td>
-        <td><%= route.points %></td>
-        <td><%= link_to 'Show', route %></td>
-        <td><%= link_to 'Edit', edit_route_path(route) %></td>
-        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Route', new_route_path %>

@@ -13,44 +13,42 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
+<div class="container-fluid p-0 lead">
+  <div class="row ">
+    <div class="col-md-4">
+      <p class="p-3">
+        <strong>Votes:</strong>
+        <%= @route.points %>
+      </p>
+      <div class="sticky-top mb-5 mx-2 p-3">
+        <h1 class="display-2"><u><%= @route.title %></u></h1>
+        <p><%= @route.description %></p>
+        <br>
+        <button type="button" id="get_directions" class="btn btn-lg btn-outline-dark rounded-0">Get Directions</button>
+        <% if user_signed_in? && @route.user_id != current_user.id %>
+          <%= link_to "Add your vote", upvote_route_path(@route), method: :post, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div id="map"></div>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @route.title %>
-</p>
 
-<p>
-  <strong>Points:</strong>
-  <%= @route.points %>
-  <% if @route.user_id != current_user.id %>
-    <%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
-  <% end %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @route.description %>
-</p>
-
-<p>
-    <div id="map"></div>
-</p>
-<button id="get_directions">Get Directions</button>
-<p>
-<strong>Places</strong>
-<% @places.each do |x| %>
-  <br>
-  <tr>
-  <Strong>Name:</strong>
-    <td><%= x.name %></td>
-  </tr>
-  <tr>
-  <Strong>Description:</strong>
-    <td><%= x.description %></td>
-  </tr>
-
-  </br>
-<% end %>
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<div class=" mt-5 pt-5 grey-bg">
+  <div class="container">
+    <h1 class="display-4 text-center">Stops on this Route</h1>
+    <% @places.each do |x| %>
+        <div class="row p-4">
+          <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+            <div class="card-body">
+              <h3 class="route-title display-4"><%= x.name %></h3>
+              <td><%= x.description %></td>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

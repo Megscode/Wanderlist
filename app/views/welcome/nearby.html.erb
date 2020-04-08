@@ -9,20 +9,38 @@
       initMapNearBy(<%= @lat %>, <%= @lng %>, route)
     });
     </script>
-   
-    <style>
-      #map-nearby {
-        height: 400px;  /* The height is 400 pixels */
-        width: 600px;  /* The width is the width of the web page */
-       }
-    </style>
-
 <% end %>
-<div id="map-nearby"></div>
-<%@routes.each do |route|%>
-  <div id="route">
-    <p><%=route.title%><p>
-    <p><%=route.description%></p>
-    <td><%= link_to 'Show', route %></td>
+<div class="container-fluid p-0">
+<div class="row lead">
+  <div class="col-md-4">
+    <div class="sticky-top mb-5 p-3">
+      <h1 class="display-2" ><u>Routes nearby</u></h1>
+      <br>
+      <%= button_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+    </div>
   </div>
-<%end%>
+   <div class="col-md-8">
+    <div id="map-nearby"></div>
+  </div>
+  </div>
+
+  <div class="pt-5 mt-5 grey-bg">
+  <div class="container">
+<% @routes.each do |route| %>
+      <div class="row p-4">
+        <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
+              <p>Votes: <%= route.points %></p>
+            </div>
+            <p><%= route.description %></p>
+              <p>Starting point: <%= Place.find(route.place1_ID).name %></p>
+              <%= link_to "View route", route, class: 'btn btn-lg btn-outline-dark rounded-0 float-right' %>
+          </div>
+        </div> 
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
