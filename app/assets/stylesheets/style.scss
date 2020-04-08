@@ -10,7 +10,8 @@ body {
 // }
 
 .grey-bg {
-  background-color: #e5e5e5
+  background-color: #e5e5e5;
+  padding-top: 3rem;
 }
 
 container-fluid {
@@ -52,12 +53,12 @@ h3 a:hover {
 // }
 .lead {
   margin-top: 50px;
-  height: 90vh;
 }
 
 .lead img {
   width: 100%;
   object-fit: cover;
+  height: 80vh
   
 }
 
