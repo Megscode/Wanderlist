@@ -97,6 +97,8 @@ class RoutesController < ApplicationController
       places = Place.create_array_of_many(params[:route])
       placeid_keys = [:place1_ID, :place2_ID, :place3_ID, :place4_ID, :place5_ID, :place6_ID, :place7_ID, :place8_ID]
       route_hash = { title: params['title'], description: params['description'], user_id: current_user.id }
+      route_hash[:starting_lat] = places[0].latitude 
+      route_hash[:starting_lng] = places[0].longitude
       
       i = 0
       places.each do |place|
