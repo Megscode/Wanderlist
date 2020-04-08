@@ -9,13 +9,16 @@
 <div class="container-fluid bg">
     <h1 class="display-1 text-light text-center">Wanderlist</h1>
 </div>
+
+<div class="pb-4 grey-bg">
 <div class="container pt-5">
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
         <h3>where would you like to go?</h1>
-        <input id="pac-input" type="text" placeholder="Search Box" class="form-control">
+        <input id="pac-input" type="text" class="form-control" placeholder="Search Box">
+         <div id="search" class="mt-3"></div>
         <button type="button" id="submit" class="btn btn-outline-dark rounded-0">Search location</button>
         <button type="button" id="get-location" class="btn btn-outline-dark rounded-0">Use my location</button>
     </div>
@@ -23,12 +26,13 @@
 </div>
 
 <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h3>Had a great day out recently and want to share it?</h1>
-        <%= button_to 'Create new route', new_route_path, class: "btn btn-outline-dark rounded-0" %>
+  <div class="card">
+    <div class="card-body">
+      <h3>Had a great day out recently and want to share it?</h1>
+       <%= link_to 'Create new route', new_route_path, class: "btn btn-outline-dark rounded-0" %>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
