@@ -5,7 +5,7 @@ RSpec.feature 'Sign in', type: :feature do
     visit '/'
     sign_up('name', 'username', 'test4@example.com', 'password')
     click_on 'Logout'
-    log_in('test@example.com', 'password')
+    log_in('test4@example.com', 'password')
     expect(page).to have_content('Wanderlist')
     expect(current_path).to eq '/'
   end
