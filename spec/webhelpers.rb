@@ -1,5 +1,5 @@
 def sign_up(name, username, email, password)
-  click_on 'Sign up'
+  click_on 'nav-sign-up'
   fill_in 'user_name', with: name
   fill_in 'user_username', with: username
   fill_in 'user_email', with: email
@@ -11,8 +11,10 @@ def sign_up(name, username, email, password)
 end
 
 def log_in(email, password)
-  click_on 'Login'
+  click_on 'nav-log-in'
   fill_in 'user_email', with: email
   fill_in 'user_password', with: password
-  click_on 'Log in'
+  within '.actions' do
+    click_on 'Log in'
+  end
 end

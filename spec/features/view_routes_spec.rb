@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'View routes', type: :feature do
   scenario 'a user can view a list of routes' do
     visit '/'
-    click_on 'All Routes'
+    click_on 'Routes'
     expect(current_path).to eq '/routes'
     expect(page).to have_content 'Royal Route'
     expect(page).to have_content 'See the Queen'
@@ -13,7 +13,7 @@ RSpec.feature 'View routes', type: :feature do
 
   scenario 'user can see a single route view' do
     visit '/'
-    click_on 'All Routes'
+    click_on 'Routes'
     first(".route").click_on 'View route'
     expect(current_path).to eq '/routes/1'
     expect(page).to have_content 'Royal Route'

@@ -4,7 +4,7 @@ RSpec.feature 'Sign up', type: :feature do
   scenario 'new user signs up' do
     visit '/'
     sign_up('name', 'username', 'test3@example.com', 'password')
-    expect(page).to have_content 'test3@example.com'
+    expect(page).to have_content 'username'
     expect(current_path).to eq '/'
   end
 
