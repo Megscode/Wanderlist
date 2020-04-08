@@ -1,39 +1,48 @@
-<h2>Sign up</h2>
+<section class="card bg-light border-light my-5 mx-auto p-3" style="max-width: 45rem">
+  <div class="card-body mb-1">
+<h2 class="display-4">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
+  <div class="form-row">
+  <div class="field col">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true, class: 'form-control rounded-0 border-dark bg-light' %>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true %>
+  <div class="field col">
+  <%= f.label :username %><br />
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text border-secondary rounded-0" id="inputGroupPrepend">@</span>
+      </div>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true, class: 'form-control rounded-0 border-dark bg-light' %>
+  </div>
+  </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control  rounded-0 border-dark bg-light" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control rounded-0 border-dark bg-light' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control rounded-0 border-dark bg-light' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-lg rounded-0 btn-outline-dark mb-4" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
+</section>

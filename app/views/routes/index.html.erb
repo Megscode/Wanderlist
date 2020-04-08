@@ -1,38 +1,39 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid">
 
-<div class="row lead">
-  <div class="col-md-4">
-    <div class="sticky-top mb-5 p-3">
-      <h1 class="display-2" ><u>Routes</u></h1>
-      <br>
-      <%= button_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+  <div class="row lead">
+    <div class="col-md-4">
+      <div class="sticky-top mb-5 p-3">
+        <h1 class="display-2" ><u>Routes</u></h1>
+        <br>
+        <%= link_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg">
     </div>
   </div>
-  <div class="col-md-8">
-    <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg">
   </div>
-</div>
-</div>
 
 
-<div class="pt-5 grey-bg">
-  <div class="container">
-    <% @routes.each do |route| %>
-      <div class="row p-4">
-        <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
-              <p>Votes: <%= route.points %></p>
+  <div class="pt-5 grey-bg">
+    <div class="container">
+      <% @routes.each do |route| %>
+        <div class="row p-4">
+          <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
+                <p>Votes: <%= route.points %></p>
+              </div>
+              <p><%= route.description %></p>
+                <p>Starting point: <%= Place.find(route.place1_ID).name %></p>
+                <%= link_to "View route", route, class: 'btn btn-outline-primary rounded-0 float-right' %>
             </div>
-            <p><%= route.description %></p>
-              <p>Starting point: <%= Place.find(route.place1_ID).name %></p>
-              <%= button_to "View route", route, class: 'btn btn-outline-primary rounded-0 float-right' %>
-          </div>
-        </div> 
-      </div>
-    <% end %>
+          </div> 
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
