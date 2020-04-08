@@ -22,7 +22,7 @@
 <p>
   <strong>Points:</strong>
   <%= @route.points %>
-  <% if @route.user_id != current_user.id %>
+  <% if user_signed_in? && @route.user_id != current_user.id %>
     <%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
   <% end %>
 </p>
