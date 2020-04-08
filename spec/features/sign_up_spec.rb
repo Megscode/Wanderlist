@@ -3,13 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Sign up', type: :feature do
   scenario 'new user signs up' do
     visit '/'
-<<<<<<< HEAD
     sign_up('name', 'username', 'test3@example.com', 'password')
     expect(page).to have_content 'test3@example.com'
-=======
-    sign_up('name', 'username', 'test1@example.com', 'password')
-    expect(page).to have_content 'test1@example.com'
->>>>>>> liz_styling
     expect(current_path).to eq '/'
   end
 
