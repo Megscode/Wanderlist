@@ -69,12 +69,12 @@
   }
 
   function displayRoute() {
-    var routeString = '<ol>'
+    var routeString = ''
     for(var i = 0; i < route.length; i++) {
       var place = route[i]
-      routeString += `<li><p>${place.name}</p><p>${place.description}</p></li>` 
+      routeString += `<div class'card'><h5 class='card-title'>${place.name}</h5><p>${place.description}</p></div><hr>` 
     }
-    return routeString + '</ol>'
+    return routeString
   }
 
   function addPlace() {

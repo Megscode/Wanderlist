@@ -8,8 +8,18 @@
     </script>
 <% end %>
  
-<h1>New Route</h1>
 
+<div class="row">
+<div class="col-md-4">
+<div class="jumbatron p-2 ml-2">
+<h1 class="display-3">New Route</h1>
 <%= render 'form', route: @route %>
+</div>
+</div>
+<div class="col-md-8">
+    <div id="map"></div>
+</div>
+</div>
+</div>
 
 <%= link_to 'Back', routes_path %>

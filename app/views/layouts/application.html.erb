@@ -6,6 +6,7 @@
     <title>Wanderlist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_API_key || ""}&libraries=places" %>
@@ -20,17 +21,23 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <p class="navbar-text float-right">
+      <div class="navbar-text d-flex justify-content-between">
+      <%= link_to "All Routes", routes_path , :class => 'navbar-link' %>
+      <div>
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
+        Logged in as <strong><%= current_user.username %></strong>.
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-      </p>
-    <%= yield %>
+      </div>
+      </div>
+      
+    <div class="container-fluid p-0">
+      <%= yield %>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

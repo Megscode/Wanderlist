@@ -55,7 +55,7 @@ group :test do
   gem 'simplecov-console'
   gem 'webmock'
   gem 'travis'
-  
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
