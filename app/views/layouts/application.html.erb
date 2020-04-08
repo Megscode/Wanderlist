@@ -21,7 +21,7 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div class="navbar-text sticky-top d-flex justify-content-between">
+      <div class="navbar-text d-flex justify-content-between">
       <%= link_to "All Routes", routes_path , :class => 'navbar-link' %>
       <div>
       <% if user_signed_in? %>

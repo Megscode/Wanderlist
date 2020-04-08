@@ -1,30 +1,37 @@
 <p id="notice"><%= notice %></p>
-<h1 class="display-2 pl-5" ><u>Routes</u></h1>
+<div class="container-fluid">
+
 <div class="row lead">
   <div class="col-md-4">
-    
+    <div class="sticky-top mb-5 p-3">
+      <h1 class="display-2" ><u>Routes</u></h1>
+      <br>
+      <%= button_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+    </div>
   </div>
   <div class="col-md-8">
     <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg">
   </div>
 </div>
-<h3><%= link_to 'Create your own route', new_route_path %></h3>
+</div>
 
-<div class="pt-5 bg-light">
+
+<div class="pt-5 grey-bg" style="background-color: #e5e5e5">
   <div class="container">
-  <div class="row">
     <% @routes.each do |route| %>
-    <div class="col-md-4">
-      <div class="route card border-0 border-bottom-3 border-dark m-2">
-        <div class="card-body">
-          <h3 class="route-title display-4"><%= link_to route.title, route %></h3>
-          <p><%= route.description %></p>
-          <p>Votes: <%= route.points %></p>
-          <%= link_to "View route", route %>
-        </div>
-      </div> 
+      <div class="row p-4">
+        <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
+              <p>Votes: <%= route.points %></p>
+            </div>
+            <p><%= route.description %></p>
+              <p>Starting point: <%= Place.find(route.place1_ID).name %></p>
+              <%= button_to "View route", route, class: 'btn btn-outline-primary rounded-0 float-right' %>
+          </div>
+        </div> 
       </div>
-    </div>
     <% end %>
   </div>
 </div>

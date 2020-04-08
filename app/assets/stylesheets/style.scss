@@ -10,7 +10,6 @@ body {
 // }
 
 grey-bg {
-  padding: 100px 10;
   background-color: #e5e5e5
 }
 
@@ -21,10 +20,10 @@ container-fluid {
 
 
 
-h3 a {
-  color: #3200FF;
-  // font-family: 'Work Sans', sans-serif;
-}
+// h3 a {
+//   color: #3200FF;
+//   // font-family: 'Work Sans', sans-serif;
+// }
 
 h3 a:hover {
   color: #3200FF;
@@ -57,6 +56,6 @@ h3 a:hover {
   
 }
 
-// .card {
-//   width: 100%
-// }
+.card {
+  width: 100%
+}
