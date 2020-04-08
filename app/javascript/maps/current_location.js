@@ -7,7 +7,7 @@ window.initUserLocation = function() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        document.location.href='http://localhost:3000/nearby?lat='+pos.lat+'&lng='+ pos.lng
+        document.location.href='/nearby?lat='+pos.lat+'&lng='+ pos.lng
       })
     }
   })
@@ -22,7 +22,7 @@ window.initUserLocation = function() {
       var lat = place.geometry.location.lat()
       var lng = place.geometry.location.lng()
 
-      document.location.href='http://localhost:3000/nearby?lat='+lat+'&lng='+ lng
+      document.location.href='/nearby?lat='+lat+'&lng='+ lng
     }
 }
 
