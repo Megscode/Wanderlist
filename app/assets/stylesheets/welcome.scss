@@ -6,16 +6,15 @@
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1538471726790-0f6b031f1982");
 
   /* Full height */
-  height: 100vh;
+  height: 85vh;
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 300px 0;
+  padding: 350px 0;
 }
 
-.bg h1 {
+.bg {
   font-family: 'Work Sans', sans-serif;
-  font-size: 6rem;
 }

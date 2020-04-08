@@ -13,48 +13,42 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
+<div class="container-fluid p-0">
+  <div class="row lead">
+    <div class="col-md-4">
+      <p class="p-3">
+        <strong>Votes:</strong>
+        <%= @route.points %>
+        <% if user_signed_in? && @route.user_id != current_user.id %>
+          <%= link_to "Add your vote", upvote_route_path(@route), method: :post, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+        <% end %>
+      </p>
+      <div class="sticky-top mb-5 mx-2 p-3">
+        <h1 class="display-2"><u><%= @route.title %></u></h1>
+        <p><%= @route.description %></p>
+        <br>
+        <button type="button" id="get_directions" class="btn btn-lg btn-outline-dark rounded-0">Get Directions</button>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div id="map"></div>
+    </div>
+  </div>
 
-<div class="row">
-<div class="col-md-4">
-<div class="jumbatron p-2 ml-2">
-<h1 class="display-3"><%= @route.title %></h1>
-</div>
-</div>
-
-<p>
-  <strong>Points:</strong>
-  <%= @route.points %>
-  <% if user_signed_in? && @route.user_id != current_user.id %>
-    <%= link_to "▲Click here to add your vote", upvote_route_path(@route), method: :post %>
-  <% end %>
-</p>
-
-<div class="col-md-4">
-  <strong>Description:</strong>
-  <%= @route.description %>
-</div>
-<div class="col-md-8">
-<button type="button" id="get_directions" class="btn btn-lg btn-outline-dark rounded-0" style="float:right;">Get Directions</button>  
-
-</div>
-<p>
-    <div id="map"></div>
-</p>
 
 
 <div class="pt-5 grey-bg">
-<div class="container">
-   <h1 class="display-3">Stops on this Route</h1>
-   <% @places.each do |x| %>
-      <div class="row p-4">
-        <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
-          <div class="card-body">
-            <div class="d-flex justify-content-center">
+  <div class="container">
+    <h1 class="display-4 text-center">Stops on this Route</h1>
+    <% @places.each do |x| %>
+        <div class="row p-4">
+          <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+            <div class="card-body">
               <h3 class="route-title display-4"><%= x.name %></h3>
               <td><%= x.description %></td>
             </div>
-<% end %>
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Destroy', route_path(@route), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', routes_path %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
