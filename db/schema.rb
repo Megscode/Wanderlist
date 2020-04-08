@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_110324) do
     t.integer "place8_ID"
     t.bigint "user_id"
     t.string "photo_url"
+    t.string "picture_url"
     t.integer "points", default: 1
     t.float "hot_score", default: 0.0
     t.decimal "starting_lat"

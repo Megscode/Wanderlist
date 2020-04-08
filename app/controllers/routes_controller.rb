@@ -75,7 +75,7 @@ class RoutesController < ApplicationController
       current_user.upvote(route)
     end
     route.calc_hot_score
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
