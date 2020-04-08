@@ -15,6 +15,7 @@ window.initMap = function(route_array) {
     document.getElementById("get_directions").addEventListener("click", function(){
         calculateRoute()
     })
+
     
 
     function calculateRoute(){
@@ -58,12 +59,14 @@ window.initMap = function(route_array) {
             initMarker(route[i])
         }
     }
-
     function initMarker(place){
         var myCoords = new google.maps.LatLng(place.lat, place.lng);
         var marker = new google.maps.Marker({
             position: myCoords,
             map: map
+        })
+        document.getElementById("get_directions").addEventListener('click', function(){
+            marker.setMap(null)
         })
     }
 }
