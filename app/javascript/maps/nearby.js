@@ -7,7 +7,7 @@ window.initMapNearBy= function(lat, lng, route_array){
   };
   console.log(mapOptions);
   var map = new google.maps.Map(document.getElementById('map-nearby'), mapOptions);
-  initCurrentLocationMarker(lat, lng)
+  // initCurrentLocationMarker(lat, lng)
   addAllMarkers(routes)
   function addAllMarkers(route) {
     for(var i = 0; i < route.length; i++) {

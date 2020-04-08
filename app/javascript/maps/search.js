@@ -1,5 +1,5 @@
  window.initSearch = function() {
-  var mapOptions = {zoom: 14, center: {lat: 51.5428627, lng: -0.039212}, mapTypeId: 'roadmap'};
+  var mapOptions = {zoom: 13, center: {lat: 51.5013673, lng: -0.1440787}, mapTypeId: 'roadmap'};
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
