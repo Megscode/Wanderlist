@@ -15,8 +15,12 @@
   <div class="col-md-4">
     <div class="sticky-top mb-5 p-3">
       <h1><u>Routes nearby</u></h1>
+      <% if @routes.empty? %>
+        <br>
+        <p>No routes nearby at the moment</p>
+      <% end %>
       <br>
-      <%= button_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
+      <%= link_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
     </div>
   </div>
    <div class="col-md-8">
