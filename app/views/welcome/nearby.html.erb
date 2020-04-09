@@ -14,7 +14,7 @@
 <div class="row lead">
   <div class="col-md-4">
     <div class="sticky-top mb-5 p-3">
-      <h1 class="display-2" ><u>Routes nearby</u></h1>
+      <h1><u>Routes nearby</u></h1>
       <br>
       <%= button_to 'Create route', new_route_path, class: 'btn btn-lg btn-outline-dark rounded-0' %>
     </div>
@@ -25,21 +25,21 @@
   </div>
 
   <div class="pt-5 mt-5 grey-bg">
-  <div class="container">
-<% @routes.each do |route| %>
-      <div class="row p-4">
-        <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <h3 class="route-title display-4"><%= link_to route.title, route, class: 'text-dark' %></h3>
+    <div class="container">
+      <% @routes.each do |route| %>
+        <div class="row p-4">
+          <div class="route card rounded-0 border-0 m-auto p-3">
+            <div class="card-header d-flex justify-content-between bg-transparent border-0">
+              <h3 class="route-title"><%= link_to route.title, route, class: 'text-dark' %></h3>
               <p>Votes: <%= route.points %></p>
             </div>
+            <div class="card-body">
             <p><%= route.description %></p>
               <%= link_to "View route", route, class: 'btn btn-lg btn-outline-dark rounded-0 float-right' %>
-          </div>
-        </div> 
-      </div>
-    <% end %>
+            </div>
+          </div> 
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
