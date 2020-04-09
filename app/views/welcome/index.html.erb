@@ -7,34 +7,43 @@
 <% end %>
 
 <div class="container-fluid bg">
-    <p class="h-3 display-4 text-light text-center">Outside lies magic.</p>
+    <p class="h3 display-4 text-light text-center">Outside lies magic.</p>
 </div>
 
-<div class="py-4 container-fluid grey-bg">
-<div class="container py-5">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card p-4 rounded-0 border-0">
-      <div class="card-body">
-        <p class="h3">Where would you like to go?</p>
-        <input id="pac-input" type="text" class="form-control" placeholder="Search Box">
-         <div id="search" class="mt-3"></div>
-         <div>
-          <button type="button" id="submit" class="btn btn-lg btn-outline-dark rounded-0 my-3 mx-1 rounded-0">Search location</button>
-          <button type="button" id="get-location" class="btn btn-lg btn-outline-dark rounded-0 my-3 mx-1 justify-content-right">Use my location</button>
-        </div>
-    </div>
-  </div>
-</div>
+<div class="py-5 container-fluid grey-bg">
 
-<div class="col-sm-6">
-  <div class="card p-4  rounded-0 border-0">
+
+<div class="container py-5 my-5 style= heigh: 80vh">
+<div class="card-deck">
+  
+  <div class="card p-4 rounded-0 border-0 m-3">
     <div class="card-body">
-      <p class="h3">Had a great day out you want to share?</p>
-       <%= link_to 'Create route', new_route_path, class: "btn btn-lg btn-outline-dark rounded-0 my-4" %>
-      </div>
+      <p class="h3 display-4">Looking for routes?</p>
+      <form class="form-inline">
+        <div class="form-group">
+          <input id="pac-input" type="text" class=" form-control form-control-lg rounded-0 border-dark" placeholder="Enter location">
+          <button type="button" id="submit" class="btn btn-lg btn-outline-dark rounded-0 my-3 mx-1 rounded-0">Search location</button>
+        </div>
+        <div id="search"></div>
+      <form>
     </div>
+    <div class=" card-footer bg-transparent border-0 d-flex justify-content-center">
+      <form>
+        <button type="button" id="get-location" class="btn btn-lg btn-dark btn-block rounded-0 mb-3">Use my location</button>
+      <form>
+    </div> 
+  </div>
+
+  <div class="card p-4  rounded-0 border-0 m-3">
+    <div class="card-body">
+      <p class="h3 display-4">Got a route to share?</p>
+      <br/>
+    </div>
+    <div class="card-footer bg-transparent border-0 d-flex justify-content-center">
+      <%= link_to 'Create route', new_route_path, class: "btn btn-lg btn-dark btn-block rounded-0 my-4 justify-content-center" %>
+    </div>  
   </div>
 </div>
+
 </div>
 </div>

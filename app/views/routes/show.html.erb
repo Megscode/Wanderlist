@@ -16,13 +16,13 @@
 <div class="container-fluid p-0 lead">
   <div class="row ">
     <div class="col-md-4">
-      <p class="p-3">
-        <strong>Votes:</strong>
-        <%= @route.points %>
-      </p>
       <div class="sticky-top mb-5 mx-2 p-3">
-        <h1 class="display-2"><u><%= @route.title %></u></h1>
+        <h1><u><%= @route.title %></u></h1>
         <p><%= @route.description %></p>
+        <p>
+          <strong>Votes:</strong>
+          <%= @route.points %>
+        </p>
         <br>
         <button type="button" id="get_directions" class="btn btn-lg btn-outline-dark rounded-0">Get Directions</button>
         <% if user_signed_in? && @route.user_id != current_user.id %>
@@ -39,12 +39,12 @@
 
 <div class=" mt-5 pt-5 grey-bg">
   <div class="container">
-    <h1 class="display-4 text-center">Stops on this Route</h1>
+    <h2 class="text-center">Stops on this Route</h1>
     <% @places.each do |x| %>
         <div class="row p-4">
-          <div class="route card rounded-0 border-0 m-auto p-3" style="max-width: 80%">
+          <div class="route card rounded-0 border-0 m-auto p-3">
             <div class="card-body">
-              <h3 class="route-title display-4"><%= x.name %></h3>
+              <h3 class="route-title"><%= x.name %></h3>
               <td><%= x.description %></td>
             </div>
           </div>
