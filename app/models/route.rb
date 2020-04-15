@@ -18,8 +18,6 @@ class Route < ApplicationRecord
   private
   
   def hot_score(points, time_ago_in_hours, gravity = 1.8)
-    # one is subtracted from available points because every route by default has one point 
-    # There is no reason for picking 1.8 as gravity, just an arbitrary value
     (points - 1) / (time_ago_in_hours + 2) ** gravity
   end
 end
